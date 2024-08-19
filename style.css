@@ -21,6 +21,25 @@ body {
   width: 100%;
   background-color: #ffffff;
 }
+/* Estilos para el botón de hamburguesa */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: black;
+  border-radius: 2px;
+}
 
 .nav-bar {
   width: 100%;
@@ -31,7 +50,8 @@ body {
 }
 
 .search-bar {
-  width: 700px;
+  width: 100%;
+  max-width: 600px;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -44,10 +64,10 @@ body {
 
 .navlist {
   display: flex;
+  gap: 20px;
 }
 
 .navlist a {
-  margin-left: 60px;
   font-size: 15px;
   font-weight: 600;
   border-bottom: 2px solid transparent;
@@ -73,6 +93,7 @@ body {
 
 .main-banner {
   display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
 }
 
@@ -80,31 +101,32 @@ body {
   width: 100%;
   height: 240px;
   overflow: hidden;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px 8px 0 0;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-inner {
   display: flex;
   transition: transform 0.5s ease;
-  width: calc(101% * 5); /* Ajusta según el número total de imágenes */
+  width: calc(100% * 5); /* Ajusta según el número total de imágenes */
 }
 
 .carousel-inner img {
   width: 100%; /* Muestra una imagen a la vez */
-  height: 300px;
+  height: 240px;
   object-fit: cover;
 }
 
 .banner1 {
   background-color: #ffffff;
   height: 240px;
+  margin-top: 10px;
 }
 
 .banner1 img {   
   height: 240px;
   object-fit: contain;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 0 8px 8px;
 }
 
 /* Popular Categories */
@@ -120,27 +142,23 @@ body {
 
 .popular-items {
   display: flex;
+  flex-wrap: nowrap;
   margin-top: 20px;
-  overflow: auto;
-}
-
-a {
-  color: #1a1a1a;
-  text-decoration: none;
-  background-color: transparent;
-  word-wrap: break-word;
+  overflow-x: auto; /* Permite scroll horizontal si es necesario */
+  gap: 10px;
 }
 
 .popular-item {
   color: #2b2c2e;
   font-size: 15px;
   line-height: 14px;
-  min-width: 172px;
+  min-width: 150px;
   text-align: center;
   padding-top: 10px;
   cursor: pointer;
   transition: transform 0.3s ease;
   padding-bottom: 15px;
+  flex-shrink: 0;
 }
 
 .popular-item img {
@@ -153,9 +171,10 @@ a {
 
 /* Recommended Items */
 .recommended-items {
-  background-color: #eff4f0;;
-  padding: 20px 34px;
+  background-color: #eff4f0;
+  padding: 20px 10px;
   display: flex;
+  flex-direction: column;
   gap: 20px; /* Añadir espacio entre elementos */
   width: 100%;
   margin-left: auto;
@@ -168,7 +187,7 @@ a {
   background-size: contain;
   background-position-y: 70%;
   background-color: #c7e8d1;
-  width: 28%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -187,6 +206,7 @@ a {
 .link-container div {
   font-size: 14px;
 }
+
 .link-container img {
   height: 300px;
   width: 100%;
@@ -204,10 +224,9 @@ a {
 
 .header-recommended-items {
   color: #5b616f;
-  margin-left: 10px;
   font-size: 16px;
   margin-bottom: 4px;
-  width: 70%;
+  width: 100%;
 }
 
 .head-line {
@@ -224,12 +243,15 @@ a {
 .item-recommended {
   display: flex;
   flex-wrap: nowrap;
-  overflow-y: hidden;
+  overflow-x: auto; /* Permite scroll horizontal si es necesario */
+  gap: 20px;
 }
 
 .floating-item-container-wrapper {
+  min-width: 156px; /* Mantén el ancho mínimo para evitar que se desborden */
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
 }
 
 .floating-item-container-wrapper:hover {
@@ -239,7 +261,6 @@ a {
 
 .floating-item-container {
   height: 260px;
-  width: 156px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -249,8 +270,7 @@ a {
 .floating-item-image {
   flex-shrink: 0;
   height: 156px;
-  width: 156px;
-  position: relative;
+  width: 100%;
 }
 
 .floating-item-image img {
@@ -272,7 +292,7 @@ a {
   white-space: normal;
   font-weight: 400;
   color: #373a43;
-  line-height: 1.4; /* Aumentar para mejor legibilidad */
+  line-height: 1.4;
 }
 
 .item-price {
@@ -304,10 +324,6 @@ a {
   align-items: center;
 }
 
-.banner-final {
-  margin-top: 10px;
-}
-
 .banner-info {
   padding-top: 40px;
   background: #fff;
@@ -319,10 +335,10 @@ a {
   border-radius: 10px;
 }
 
-footer-container {
+.footer-container {
   padding-top: 40px;
   padding-bottom: 40px;
-  padding-left: 100px;
+  padding-left: 20px;
   color: #000;
 }
 
@@ -333,16 +349,19 @@ footer-container {
   margin-left: auto;
 }
 
-.footer-features a{
-  flex-basis: 33%;
+.footer-features a {
+  flex-basis: 100%;
 }
-.footer-features{
+
+.footer-features {
   display: flex;
+  flex-direction: column;
   margin-bottom: 1px;
   background-color: #c7e8d1;
   padding: 15px;
   border-radius: 10px 10px 0 0;
 }
+
 .footer-feature {
   color: #0588f8;
   display: flex;
@@ -352,49 +371,121 @@ footer-container {
   align-items: center;
   cursor: pointer;
 }
-.footer-feature img{
+
+.footer-feature img {
   width: 49px;
 }
+
 .footer-feature div {
   margin-top: 5px;
 }
+
 .footer-separator {
   width: calc(100% - 64px);
   margin: 0 auto;
   height: 1px;
   background: #e3e5e8;
 }
+
 .footer-bottom {
   display: flex;
-  padding: 48px 32px 48px 32px;
+  flex-direction: column;
+  padding: 48px 32px;
   background-color: #c7e8d1;
 }
+
 .footer-left-side {
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
 }
+
 .footer-bottom div {
-  flex-basis: 50%;
+  flex-basis: 100%;
 }
+
 .title {
   font-family: "Inter-SemiBold";
   margin-bottom: 20px;
   font-size: 14px;
 }
+
 .option {
   margin-bottom: 10px;
   font-size: 14px;
 }
+
 .footer-bottom a {
   color: #0588f8;
 }
+
 .footer-right-side {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   max-width: 300px;
 }
+
 .footer-rigth-side img {
   width: 24px;
   height: 24px;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+  .main-banner {
+    flex-direction: row;
+  }
+
+  .banner1 {
+    margin-top: 0;
+  }
+
+  .recommended-items {
+    flex-direction: row;
+    padding: 20px;
+  }
+
+  .floating-item-container-wrapper {
+    width: calc(20% - 20px);
+  }
+
+  .footer-features {
+    flex-direction: row;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 768px) {
+  .main-banner {
+    text-align: center;
+  }
+  .navlist {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 3%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+  }
+
+  .navlist li {
+    margin: 15px;
+  }
+
+  /* Mostrar el botón de hamburguesa */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Mostrar el menú al hacer clic */
+  .navlist.active {
+    display: flex;
+  }
 }

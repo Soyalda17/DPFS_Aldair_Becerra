@@ -20,3 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setInterval(nextImage, 5000); // Cambia de imagen cada 5 segundos
 });
+
+const hamburger = document.getElementById('hamburger');
+const navlist = document.getElementById('navlist');
+
+hamburger.addEventListener('click', () => {
+    navlist.classList.toggle('active');
+});
