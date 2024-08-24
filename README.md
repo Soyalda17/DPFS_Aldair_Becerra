@@ -21,7 +21,7 @@ Una vez configurado tu tablero, copia el enlace del mismo y añádelo a tu archi
 
 [Ver el tablero del proyecto](https://github.com/users/Soyalda17/projects/1/views/1)
 
-##Retroespectiva del sprint 2
+## Retroespectiva del sprint 2
 - Qué hiciste bien: crear las paginas lo mas parecidos a las wireframes.
 - Qué hiciste mal: la configuracion de nodemon ha sido un problema para mí, las rutas y el cambio de extension de archivo de html a ejes.
 - Qué deberías empezar a hacer: seguir revisando  cada detalle que no terminé.
