@@ -14,3 +14,15 @@ Será compuesta pora personas apasionadas por la tecnología y la innovación. N
   - Viajeros y Usuarios en Movimiento: Que necesitan accesorios confiables y duraderos para sus dispositivos móviles.
 
 Para ajustarnos a nuestro público, hemos implementado una interfaz fácil de usar y un sistema de recomendaciones personalizadas que garantizan que cada usuario encuentre lo que busca de manera rápida y eficiente. Nuestro objetivo es proporcionar una experiencia de compra en línea cómoda y satisfactoria, con entregas rápidas y seguras directamente a la puerta del cliente.
+
+## Enlace al Tablero
+
+Una vez configurado tu tablero, copia el enlace del mismo y añádelo a tu archivo README.md para que sea accesible desde tu repositorio.
+
+[Ver el tablero del proyecto](https://github.com/users/Soyalda17/projects/1/views/1)
+
+## Retroespectiva del sprint 2
+- Qué hiciste bien: crear las paginas lo mas parecidos a las wireframes.
+- Qué hiciste mal: la configuracion de nodemon ha sido un problema para mí, las rutas y el cambio de extension de archivo de html a ejes.
+- Qué deberías empezar a hacer: seguir revisando  cada detalle que no terminé.
+- Qué deberías dejar de hacer: Evitar prácticas que ralentizan el proceso, como la falta de documentación o no priorizar adecuadamente las tareas.
