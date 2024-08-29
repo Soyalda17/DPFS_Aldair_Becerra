@@ -1,0 +1,168 @@
+/* Diseño Base */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.auth-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.auth-form p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #eee;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.auth-button:hover {
+    background-color: #333;
+}
+
+.auth-form p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-form p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.auth-form p a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes para pantallas grandes (computadoras y televisores) */
+@media (min-width: 1024px) {
+    .auth-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .image-placeholder {
+        width: 40%;
+        height: 500px;
+        margin-bottom: 0;
+    }
+
+    .auth-form {
+        width: 50%;
+        padding: 20px;
+        max-width: none;
+    }
+
+    .auth-form h2, .auth-form p {
+        text-align: left;
+    }
+}
+
+/* Ajustes para pantallas medianas (tabletas) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .image-placeholder {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .auth-form {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 10px;
+    }
+
+    .image-placeholder {
+        height: 200px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .form-group input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .auth-button {
+        padding: 10px;
+        font-size: 16px;
+    }
+}

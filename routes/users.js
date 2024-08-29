@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const usersController = require('../controllers/usersController'); 
+const isAuthenticated = require('../middlewares/auth');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// Rutas de registro
+router.get('/register', usersController.showRegisterForm);
+router.post('/register', usersController.processRegister);
+
+// Rutas de login
+router.get('/login', (req, res) => res.render('users/login'));
+router.post('/login', usersController.login);
+
+// Ruta de perfil (requiere autenticación)
+router.get('/profile', isAuthenticated, usersController.profile);
 
 module.exports = router;

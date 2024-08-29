@@ -7,7 +7,7 @@ router.get('/:id', (req, res) => {
 
     // Lógica para obtener los detalles del producto usando el productId
 
-    res.render('productDetails', {
+    res.render('products/productDetails', {
         product: {
             id: productId,
             name: 'Nombre del Producto',

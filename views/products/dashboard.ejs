@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Bancaria</title>
+    <link rel="stylesheet" href="/stylesheets/dashboard.css"> <!-- Enlace a tu hoja de estilos CSS -->
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#">Mi Perfil</a></li>
+                <li><a href="#">Empezar a Vender</a></li>
+                <li><a href="#">Mis Direcciones</a></li>
+                <li><a href="#">Favoritos</a></li>
+                <li><a href="#">Facturación</a></li>
+                <li><a href="#">Historial de Compras</a></li>
+                <li><a href="#">Historial de Pagos</a></li>
+                <li><a href="#">Wallet</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <h2>Información Bancaria</h2>
+            <p>Para poder recibir lo ganado en tus ventas o solicitar retiros de tu wallet, necesitas llenar tus datos bancarios.</p>
+            <form action="/guardar-informacion-bancaria" method="POST" class="bank-info-form">
+                <div class="form-group">
+                    <label for="nombre">Cuenta a nombre de:</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="banco">Selecciona tu Banco:</label>
+                    <select id="banco" name="banco">
+                        <option value="banco-general">BANCO GENERAL</option>
+                        <!-- Agregar más opciones de banco según sea necesario -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tipo-cuenta">Tipo de cuenta:</label>
+                    <select id="tipo-cuenta" name="tipo-cuenta">
+                        <option value="ahorro">Ahorro</option>
+                        <option value="corriente">Corriente</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numero-cuenta">Número de cuenta:</label>
+                    <input type="text" id="numero-cuenta" name="numero-cuenta">
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-cancel">Cancelar</button>
+                    <button type="submit" class="btn-save">Guardar</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

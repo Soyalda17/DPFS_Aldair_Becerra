@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!-- login.ejs y register.ejs -->
+<link rel="stylesheet" href="/stylesheets/auth.css">
+
+    <title>Registro - CrateDrop</title>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="image-placeholder"></div>
+        <div class="auth-form">
+            <h2>BIENVENIDO A CRATEDROP</h2>
+            <p>NECESITAMOS UNOS DATOS BÁSICOS PARA EMPEZAR</p>
+            
+            <form action="/users/register" method="POST">
+                <div class="form-group">
+                    <label for="first-name">NOMBRE</label>
+                    <input type="text" id="first-name" name="firstName" placeholder="INGRESA TU NOMBRE" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">APELLIDO</label>
+                    <input type="text" id="last-name" name="lastName" placeholder="INGRESA TU APELLIDO" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">CORREO ELECTRÓNICO</label>
+                    <input type="email" id="email" name="email" placeholder="EJEMPLO@EMAIL.COM" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">CONTRASEÑA</label>
+                    <input type="password" id="password" name="password" placeholder="*******" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">NÚMERO DE CELULAR</label>
+                    <input type="text" id="phone" name="phone" placeholder="00000000" required>
+                </div>
+
+                <button type="submit" class="auth-button">REGISTRAR</button>
+
+                <p>¿YA TIENES CUENTA? <a href="/login">INICIA SESIÓN</a></p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

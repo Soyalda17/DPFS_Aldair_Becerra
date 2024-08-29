@@ -1,20 +1,42 @@
 const express = require('express');
 const router = express.Router();
 
+// Simulación de datos de productos en el carrito
+const cartItems = [
+    {
+        id: 1,
+        name: 'Nombre del Producto 1',
+        price: 100.00,
+        quantity: 1,
+        imageUrl: '/images/product1.jpg'
+    },
+    {
+        id: 2,
+        name: 'Nombre del Producto 2',
+        price: 100.00,
+        quantity: 1,
+        imageUrl: '/images/product2.jpg'
+    }
+];
+
+// Ruta para mostrar la página del carrito
 router.get('/', (req, res) => {
-  // Ejemplo de datos de productos en el carrito (normalmente vendrían de una base de datos o sesión)
-  const cartItems = [
-    { name: 'Producto 1', price: 100, quantity: 1 },
-    { name: 'Producto 2', price: 100, quantity: 1 }
-  ];
+    // Calcula el subtotal, impuestos y total
+    const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const delivery = 3.00;
+    const tax = 3.00;
+    const serviceCharge = 3.00;
+    const total = subtotal + delivery + tax + serviceCharge;
 
-  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const delivery = 3.00;
-  const tax = 3.00;
-  const serviceCharge = 3.00;
-  const total = subtotal + delivery + tax + serviceCharge;
-
-  res.render('cart', { cartItems, subtotal, delivery, tax, serviceCharge, total });
+    // Renderiza la vista del carrito
+    res.render('products/cart', {
+        cartItems: cartItems,
+        subtotal: subtotal,
+        delivery: delivery,
+        tax: tax,
+        serviceCharge: serviceCharge,
+        total: total
+    });
 });
 
 module.exports = router;

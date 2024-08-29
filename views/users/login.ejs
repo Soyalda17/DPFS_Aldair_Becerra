@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!-- login.ejs y register.ejs -->
+<link rel="stylesheet" href="/stylesheets/auth.css">
+
+    <title>Iniciar Sesión - CrateDrop</title>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="image-placeholder"></div>
+        <div class="auth-form">
+            <h2>INICIA SESIÓN</h2>
+            <p>ENTRA A LA COMUNIDAD DE CONFIANZA</p>
+            
+            <form action="/users/login" method="POST">
+                <div class="form-group">
+                    <label for="email">CORREO ELECTRÓNICO</label>
+                    <input type="email" id="email" name="email" placeholder="EJEMPLO@EMAIL.COM" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">CONTRASEÑA</label>
+                    <input type="password" id="password" name="password" placeholder="*******" required>
+                </div>
+
+                <button type="submit" class="auth-button">INICIAR SESIÓN</button>
+
+                <p>ÚNETE A CRATEDROP <a href="/register">CREAR CUENTA</a></p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
