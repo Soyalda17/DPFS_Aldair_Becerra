@@ -6,265 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrateDrop</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-
 </head>
 
 <body>
     <%- include('partials/header') %>
 
-    <div class="main">
-        <div class="home-container">
-            <div class="main-banner">
-                <div class="carousel">
-                    <div class="carousel-inner">
-                        <img src="..//images/img/banner 2.jpg" alt="banner 1">
-                        <img src="../images/img/banner 2.jpg" alt="banner 2">
-                        <img src="../images/img/banner 3.jpg" alt="banner 3">
-                        <img src="../images/img/banner 4.jpg" alt="banner 1">
-                        <img src="../images/img/banner 5.jpg" alt="banner 1">
-                    </div>
-
-                </div>
-                <div class="banner1">
-                    <img class="primerBanner" src="../images/img/banner-cuadrado1.jpg" alt="bannercuadrado1">
+    <!-- Contenedor Principal -->
+    <div class="main home-container">
+        <!-- Sección de Banners -->
+        <div class="main-banner">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <img src="/images/img/banner1.jpg" alt="Banner 1">
+                    <img src="/images/img/banner2.jpg" alt="Banner 2">
                 </div>
             </div>
-            <div class="popular-categories">
-                <div class="popular-title">
-                    CATEGORIAS POPULARES
-                </div>
-                <div class="popular-items">
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="popular-item">
-                            <img src="../images/img/iconos/icono populares.jpg" alt="icono populares">
-                            <div>item</div>
-                        </div>
-                    </a>
-                    
-                </div>
-
-            </div>
-
-            <div class="recommended-items home-container ">
-                <div class="banner1-recommended-items">
-                    <a href="/products/productDetails/<%=1%>" class="link-container">
-                        <h6>aqui va un titulo</h6>
-                        <img src="../images/img/banner-cuadrado2.jpg" alt="banner cuadrado">
-                    </a>
-                    <div>
-                        COMPRALO YA!
-
-                    </div>
-                </div>
-                <div class="header-recommended-items">
-                    <div class="list-recommended-items">
-                        <div class="head-line">
-                            <h6>PRODUCTOS RECOMENDADOS</h6>
-                        </div>
-                        <div class="item-recommended">
-                            <div class="floating-item-container-wrapper">
-                                <div class="floating-item-container">
-                                    <div class="floating-item-image">
-                                        <img src="../images/img/banner-cuadrado3.jpg" alt="">
-                                    </div>
-                                    <div class="floating-item-info">
-                                        <div class="item-title">
-                                            <span>
-                                                oferta esclusiva - informacion - informacion del producto - y mas
-                                            </span>
-                                        </div>
-                                        <div class="item-price">
-                                            <span>
-                                                $12
-                                                <span class="item-old-price">$21</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span class="discount-label">
-                                        -
-                                        43
-                                        %
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="floating-item-container-wrapper">
-                                <div class="floating-item-container">
-                                    <div class="floating-item-image">
-                                        <img src="../images/img/banner-cuadrado3.jpg" alt="">
-                                    </div>
-                                    <div class="floating-item-info">
-                                        <div class="item-title">
-                                            <span>
-                                                oferta esclusiva - informacion - informacion del producto - y mas
-                                            </span>
-                                        </div>
-                                        <div class="item-price">
-                                            <span>
-                                                $12
-                                                <span class="item-old-price">$21</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span class="discount-label">
-                                        -
-                                        43
-                                        %
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="floating-item-container-wrapper">
-                                <div class="floating-item-container">
-                                    <div class="floating-item-image">
-                                        <img src="../images/img/banner-cuadrado3.jpg" alt="">
-                                    </div>
-                                    <div class="floating-item-info">
-                                        <div class="item-title">
-                                            <span>
-                                                oferta esclusiva - informacion - informacion del producto - y mas
-                                            </span>
-                                        </div>
-                                        <div class="item-price">
-                                            <span>
-                                                $12
-                                                <span class="item-old-price">$21</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span class="discount-label">
-                                        -
-                                        43
-                                        %
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="floating-item-container-wrapper">
-                                <div class="floating-item-container">
-                                    <div class="floating-item-image">
-                                        <img src="../images/img/banner-cuadrado3.jpg" alt="">
-                                    </div>
-                                    <div class="floating-item-info">
-                                        <div class="item-title">
-                                            <span>
-                                                oferta esclusiva - informacion - informacion del producto - y mas
-                                            </span>
-                                        </div>
-                                        <div class="item-price">
-                                            <span>
-                                                $12
-                                                <span class="item-old-price">$21</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span class="discount-label">
-                                        -
-                                        43
-                                        %
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="floating-item-container-wrapper">
-                                <div class="floating-item-container">
-                                    <div class="floating-item-image">
-                                        <img src="../images/img/banner-cuadrado3.jpg" alt="">
-                                    </div>
-                                    <div class="floating-item-info">
-                                        <div class="item-title">
-                                            <span>
-                                                oferta esclusiva - informacion - informacion del producto - y mas
-                                            </span>
-                                        </div>
-                                        <div class="item-price">
-                                            <span>
-                                                $12
-                                                <span class="item-old-price">$21</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span class="discount-label">
-                                        -
-                                        43
-                                        %
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="banner-info">
-                <div>
-                    <img src="../images/img/banner-final.jpg" alt="banner*info">
-                </div>
+            <div class="banner1">
+                <img class="primerBanner" src="/images/img/banner-cuadrado1.jpg" alt="Banner Cuadrado 1">
             </div>
         </div>
-    </div>
+
+        <!-- Categorías Populares -->
+        <div class="popular-categories">
+            <h2>CATEGORÍAS POPULARES</h2>
+            <div class="popular-items">
+                <% categorias.forEach(categoria => { %>
+                    <div class="popular-item">
+                        <img src="<%= categoria.image %>" alt="Icono <%= categoria.name %>">
+                        <div><%= categoria.name %></div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <!-- Productos Recomendados -->
+        <div class="recommended-items">
+            <h2>PRODUCTOS RECOMENDADOS</h2>
+            <div class="item-recommended">
+                <% products.forEach(product => { %>
+                    <div class="floating-item-container-wrapper">
+                        <div class="floating-item-container">
+                            <div class="floating-item-image">
+                                <img src="<%= product.image %>" alt="<%= product.name %>">
+                            </div>
+                            <div class="floating-item-info">
+                                <h3 class="item-title"><%= product.name %></h3>
+                                <p class="product-description"><%= product.description %></p>
+                                <p class="item-price">$<%= product.price %></p>
+                                <a href="/products/productDetails/<%= product.id %>" class="view-details-button">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <!-- Sección de Información Adicional -->
+        <div class="banner-info">
+            <img src="/images/img/banner-final.jpg" alt="Banner Información">
+        </div>
     </div>
 
     <%- include('partials/footer') %>
-
     <script src="/javascripts/scripts.js"></script>
-
 </body>
 
 </html>

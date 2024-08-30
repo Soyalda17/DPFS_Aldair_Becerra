@@ -1,109 +1,51 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="stylesheet" href="/stylesheets/productDetails.css" />
+    <link rel="stylesheet" href="/stylesheets/productStyles.css" />
 </head>
-
 <body>
     <%- include('../partials/header') %>
-        <div class="cart-container">
-            <!-- Sección del producto principal -->
-            <div class="product-overview">
-                <div class="product-image">
-                    <img src="../images/img/banner-cuadrado3.jpg" alt="Product Image">
-                </div>
-                <div class="product-details">
-                    <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
-                    <div class="product-price">
-                        <span>PRECIO</span>
-                        <span>$100</span>
-                    </div>
-                    <div class="product-options">
-                        <span>COLOR</span>
-                        <div class="color-options">
-                            <div class="color red"></div>
-                            <div class="color yellow"></div>
-                            <div class="color green"></div>
-                        </div>
-                        <div class="quantity-selector">
-                            <button>-</button>
-                            <input type="text" value="1">
-                            <button>+</button>
-                        </div>
-                    </div>
-                    <button class="buy-button">COMPRAR YA</button>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-                </div>
-            </div>
 
-            <!-- Sección "Te podría gustar" -->
-            <div class="related-products">
-                <h3>TE PODRÍA GUSTAR</h3>
-                <div class="related-product-list">
-                    <div class="related-product-item">NOMBRE</div>
-                    <div class="related-product-item">NOMBRE</div>
-                    <div class="related-product-item">NOMBRE</div>
-                    <div class="related-product-item">NOMBRE</div>
-                </div>
+    <div class="cart-container">
+        <!-- Sección del producto principal -->
+        <div class="product-overview">
+            <div class="product-image">
+                <!-- Usa la imagen del producto -->
+                <img src="<%= product.image %>" alt="<%= product.name %>">
             </div>
+            <div class="product-details">
+                <!-- Muestra el nombre del producto -->
+                <h2><%= product.name %></h2>
+                
+                <!-- Muestra el precio del producto -->
+                <div class="product-price">
+                    <span>Precio:</span>
+                    <span>$<%= product.price %></span>
+                </div>
 
-            <!-- Descripción del producto -->
-            <div class="product-description">
-                <h3>DESCRIPCIÓN DEL PRODUCTO</h3>
-                <p>
-                    What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry...
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam dolore soluta tempore quos ipsum
-                    doloremque saepe similique assumenda necessitatibus beatae reiciendis temporibus placeat sapiente
-                    nemo consequatur, animi dolorum aperiam quisquam?
-                    Obcaecati fugiat nostrum provident totam quibusdam molestias, atque illo consequuntur eum nihil quo
-                    possimus dolor enim nesciunt rerum. Adipisci illum optio animi ab quam vel beatae est, inventore
-                    corporis magni?
-                    Alias repudiandae perspiciatis eum nobis veniam nam enim eos odio ducimus. Inventore amet, odit fuga
-                    rerum sit aliquid accusantium vel. Odit sapiente quo sint pariatur molestias. Ad numquam amet ipsam!
-                    Provident temporibus quibusdam laudantium veritatis unde? Vitae eum odit at. Autem commodi facilis
-                    quasi optio! Libero expedita non ad reprehenderit dolorem provident odit aliquam, quisquam sit.
-                    Atque totam laudantium quos!
-                    Numquam deleniti ullam, architecto et rerum error, laboriosam aut deserunt vero nobis reiciendis hic
-                    consequatur accusamus eius provident blanditiis atque earum repellat repellendus itaque. Ratione
-                    voluptates assumenda deserunt possimus voluptate.
-                    Quas rem ut ratione, iusto quos nobis omnis dignissimos deleniti dolore nulla obcaecati. A fugit
-                    laudantium natus dolorum non unde provident nihil eum, quas labore facere ipsa omnis et
-                    necessitatibus.
-                    Inventore ducimus fugit, quas aliquid sapiente quis est? Provident eveniet doloremque laborum,
-                    deserunt reprehenderit totam quidem facere officiis illo neque, error odit, nemo culpa laudantium
-                    magnam perferendis unde dolorum nihil.
-                    Sequi pariatur ipsam accusantium ratione, perspiciatis omnis ducimus harum eum, vero architecto et
-                    quis alias odio porro nulla! Porro corrupti nam possimus dignissimos veniam natus at a laboriosam
-                    reprehenderit quibusdam?
-                    Incidunt dolores eaque repudiandae unde eveniet dicta quo labore, rerum ex ad! Beatae rem voluptate
-                    corrupti saepe asperiores vel unde tempore quas ipsa! Excepturi quam mollitia iste! Sint, autem
-                    dolores.
-                    Rerum iste aperiam voluptatum, laborum sapiente adipisci provident ex assumenda impedit dignissimos
-                    enim architecto? Quis reprehenderit nam sunt eaque unde, labore facere expedita voluptate autem
-                    ratione accusamus iste, aut totam!
-                    Quaerat nam impedit quis saepe iste sapiente quasi libero optio, recusandae adipisci accusamus!
-                    Quaerat, officiis. Cumque veritatis consectetur natus voluptatum hic facilis saepe ipsa
-                    exercitationem tenetur minima recusandae, deserunt aut?
-                    Recusandae excepturi ipsa aliquid dolorem maiores nulla ex mollitia, dolor ducimus modi quae, soluta
-                    voluptatem asperiores magnam at sunt, provident exercitationem eveniet harum! Blanditiis sunt
-                    doloribus reiciendis deleniti pariatur beatae.
-                    Commodi corporis ipsum totam voluptate porro blanditiis fugiat et dolorem fuga natus nemo vel
-                    quaerat placeat, sed quod. Velit ipsam fuga error omnis odio nihil. Quo delectus perspiciatis sequi
-                    dolor!
-                    Voluptas, adipisci molestiae. Labore dolorum iste esse nostrum ipsam numquam earum doloremque!
-                    Soluta facere, alias adipisci quibusdam culpa rem, ad officiis debitis iusto aliquam libero placeat
-                    perspiciatis deleniti quae? Incidunt.
-                    Natus eveniet at rerum, ipsam vero perferendis tenetur quasi quaerat aliquam sit non tempora minima
-                    et repellendus alias blanditiis praesentium obcaecati sed consectetur. Saepe sed optio quae,
-                    temporibus corporis error!
-                </p>
+                <!-- Opcional: Muestra otros detalles, como descripción -->
+                <p class="product-description"><%= product.description %></p>
+
+                <!-- Botón de compra -->
+                <button class="buy-button">COMPRAR YA</button>
             </div>
         </div>
 
-        <%- include('../partials/footer') %>
-</body>
+        <!-- Sección "Te podría gustar" -->
+        <div class="related-products">
+            <h3>TE PODRÍA GUSTAR</h3>
+            <div class="related-product-list">
+                <div class="related-product-item">NOMBRE</div>
+                <div class="related-product-item">NOMBRE</div>
+                <!-- Puedes añadir más productos relacionados aquí -->
+            </div>
+        </div>
+    </div>
 
+    <%- include('../partials/footer') %>
+</body>
 </html>

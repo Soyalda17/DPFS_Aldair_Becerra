@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "firstName": "Juan",
+        "lastName": "Pérez",
+        "email": "juan.perez@example.com",
+        "password": "password123",
+        "category": "cliente",
+        "image": "url_de_imagen_usuario_1"
+    },
+    {
+        "id": 2,
+        "firstName": "Ana",
+        "lastName": "García",
+        "email": "ana.garcia@example.com",
+        "password": "password456",
+        "category": "cliente",
+        "image": "url_de_imagen_usuario_2"
+    },
+    {
+        "id": 3,
+        "firstName": "Carlos",
+        "lastName": "López",
+        "email": "carlos.lopez@example.com",
+        "password": "password789",
+        "category": "admin",
+        "image": "url_de_imagen_usuario_3"
+    },
+    {
+        "id": 4,
+        "firstName": "María",
+        "lastName": "Rodríguez",
+        "email": "maria.rodriguez@example.com",
+        "password": "password321",
+        "category": "cliente",
+        "image": "url_de_imagen_usuario_4"
+    }
+]

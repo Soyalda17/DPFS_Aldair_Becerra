@@ -12,6 +12,8 @@ var productsRouter = require('./routes/products'); //importa la ruta de los prod
 var dashboardRouter = require('./routes/dashboard');
 var usersController = require('./controllers/usersController'); // Ajusta la ruta según tu estructura de carpetas
 const db = require('./db'); // Asegúrate de que la conexión a la base de datos esté funcionando correctamente
+const methodOverride = require('method-override');
+const bodyParser = require('body-parser');
 var app = express();
 
 
@@ -24,6 +26,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Configuración de middleware
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(methodOverride('_method'));
 
 
 
@@ -43,6 +50,7 @@ app.use('/products', productsRouter);
 app.use('/products/productDetails', productDetailsRouter); // Define la ruta para los detalles de productos
 app.use('/products/cart', cartRouter); // Define la ruta base para el carrito
 app.use('/products/dashboard', dashboardRouter);
+app.use(methodOverride('_method'));
 
 // Ruta principal
 app.get('/', (req, res) => {

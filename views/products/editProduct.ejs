@@ -1,51 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="stylesheet" href="/stylesheets/createProduct.css">
-</head>
+    <link rel="stylesheet" href="/stylesheets/productStyles.css" />
 <body>
+
     <%- include('../partials/header') %>
-    
-    <div class="container">
+
+    <div class="cart-container">
         <h1>Editar Producto</h1>
-        <form action="/products/edit/<%= product.id %>" method="POST" enctype="multipart/form-data">
-            <div>
-                <label for="name">Nombre del Producto:</label>
-                <input type="text" id="name" name="name" value="<%= product.name %>" required>
-            </div>
-            <div>
-                <label for="item">Item:</label>
-                <input type="text" id="item" name="item" value="<%= product.item %>" required>
-            </div>
-            <div>
+        <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="product-details">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" value="<%= product.name %>" required><br>
+
                 <label for="description">Descripción:</label>
-                <textarea id="description" name="description" required><%= product.description %></textarea>
-            </div>
-            <div>
+                <textarea id="description" name="description" required><%= product.description %></textarea><br>
+
                 <label for="price">Precio:</label>
-                <input type="number" id="price" name="price" value="<%= product.price %>" required>
+                <input type="number" id="price" name="price" value="<%= product.price %>" required><br>
+
+                <!-- Campo para cargar la nueva imagen -->
+                <label for="image">Nueva Imagen (opcional):</label>
+                <input type="file" id="image" name="image" accept="image/*"><br>
             </div>
-            <div>
-                <label for="quantity">Cantidad:</label>
-                <input type="number" id="quantity" name="quantity" value="<%= product.quantity %>" required>
-            </div>
-            <div>
-                <label for="discount">Descuento:</label>
-                <select id="discount" name="discount">
-                    <option value="no" <%= product.discount === "no" ? "selected" : "" %>>No</option>
-                    <option value="yes" <%= product.discount === "yes" ? "selected" : "" %>>Sí</option>
-                </select>
-            </div>
-            <div>
-                <label for="image">Subir Imagen:</label>
-                <input type="file" id="image" name="image">
-                <small>Deja este campo vacío si no deseas cambiar la imagen.</small>
-            </div>
-            <button type="submit">Guardar Cambios</button>
+            <button class="buy-button" type="submit">Guardar Cambios</button>
         </form>
+        <a href="/products">Cancelar</a>
     </div>
 
     <%- include('../partials/footer') %>
+
 </body>
 </html>
