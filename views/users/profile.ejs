@@ -1,29 +1,57 @@
-
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="stylesheet" href="/stylesheets/profile.css" />
-</hea
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <link rel="stylesheet" href="/stylesheets/profile.css"/>
+</head>
+<body>
 
-<%- include('../partials/header') %>
+    <%- include('../partials/header') %>
 
-<main>
-    <section class="profile-container">
-        <h1>Mi Perfil</h1>
-        <div class="profile-details">
-            <p><strong>Nombre:</strong> <%= user.name %></p>
-            <p><strong>Email:</strong> <%= user.email %></p>
-            <!-- Agrega más detalles del perfil aquí -->
-        </div>
+    <div class="container">
+        <!-- Barra lateral de navegación -->
+        <aside class="sidebar">
+            <ul>
+                <li class="active"><a href="#">Mi Perfil</a></li>
+                <li><a href="/users/sell">Empezar a Vender</a></li>
+                <li><a href="#">Mis Direcciones</a></li>
+                <li><a href="#">Favoritos</a></li>
+                <li><a href="#">Facturación</a></li>
+                <li><a href="#">Historial de Compras</a></li>
+                <li><a href="#">Historial de Pagos</a></li>
+                <li><a href="#">Wallet</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="/users/logout">Cerrar Sesión</a></li>
+            </ul>
+        </aside>
 
-        <div class="profile-actions">
-            <a href="/users/edit" class="btn">Editar Perfil</a>
-            <a href="/logout" class="btn">Cerrar Sesión</a>
-        </div>
-    </section>
-</main>
+        <!-- Contenido del perfil -->
+        <main class="profile-content">
+            <div class="profile-header">
+                <img class="profile-pic" src="/uploads/<%= user.image %>" alt="Imagen de Perfil">
+                <div class="profile-info">
+                    <h2><%= user.name %></h2> 
+                    <p>🌍 <%= user.location %></p> 
+                    <p>📅 Tienes <%= Math.floor((new Date() - new Date(user.created_at)) / (1000 * 60 * 60 * 24 * 365)) %> años en CrateDrop</p>
+                </div>
+                <div class="profile-actions">
+                    <a href="/users/editProfile" class="btn primary">Editar Perfil</a>
+                </div>
+            </div>
 
-<%- include('../partials/footer') %>
+            <div class="profile-reviews">
+                <img src="ruta/a/imagen/review.png" alt="Reviews">
+                <p>Aún no tienes productos</p>
+                <small>Los productos ayudan a mantener nuestra comunidad confiable y segura</small>
+            </div>
+        </main>
+    </div>
+
+    <%- include('../partials/footer') %>
+
+
+</body>
+</html>

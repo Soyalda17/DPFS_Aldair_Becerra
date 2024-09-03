@@ -1,59 +1,50 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información Bancaria</title>
-    <link rel="stylesheet" href="/stylesheets/dashboard.css"> <!-- Enlace a tu hoja de estilos CSS -->
-</head>
-<body>
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            <ul>
-                <li><a href="#">Mi Perfil</a></li>
-                <li><a href="#">Empezar a Vender</a></li>
-                <li><a href="#">Mis Direcciones</a></li>
-                <li><a href="#">Favoritos</a></li>
-                <li><a href="#">Facturación</a></li>
-                <li><a href="#">Historial de Compras</a></li>
-                <li><a href="#">Historial de Pagos</a></li>
-                <li><a href="#">Wallet</a></li>
-                <li><a href="#">Ayuda</a></li>
-                <li><a href="#">Cerrar Sesión</a></li>
-            </ul>
-        </aside>
-        <main class="content">
-            <h2>Información Bancaria</h2>
-            <p>Para poder recibir lo ganado en tus ventas o solicitar retiros de tu wallet, necesitas llenar tus datos bancarios.</p>
-            <form action="/guardar-informacion-bancaria" method="POST" class="bank-info-form">
-                <div class="form-group">
-                    <label for="nombre">Cuenta a nombre de:</label>
-                    <input type="text" id="nombre" name="nombre">
-                </div>
-                <div class="form-group">
-                    <label for="banco">Selecciona tu Banco:</label>
-                    <select id="banco" name="banco">
-                        <option value="banco-general">BANCO GENERAL</option>
-                        <!-- Agregar más opciones de banco según sea necesario -->
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="tipo-cuenta">Tipo de cuenta:</label>
-                    <select id="tipo-cuenta" name="tipo-cuenta">
-                        <option value="ahorro">Ahorro</option>
-                        <option value="corriente">Corriente</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="numero-cuenta">Número de cuenta:</label>
-                    <input type="text" id="numero-cuenta" name="numero-cuenta">
-                </div>
-                <div class="form-buttons">
-                    <button type="button" class="btn-cancel">Cancelar</button>
-                    <button type="submit" class="btn-save">Guardar</button>
-                </div>
-            </form>
-        </main>
+<div class="table-container">
+    <div class="filter-section">
+        <div class="dashboard-header">
+            <h2>Mis Drops</h2>
+            <!-- Botón para crear un nuevo producto -->
+            <a href="/products/create" class="btn btn-primary">+ Nuevo</a>
+        </div>
+        <div>
+            <button>Filtrar</button>
+            <select>
+                <option>Mostrar 50</option>
+                <!-- Más opciones -->
+            </select>
+            <input type="text" placeholder="Buscar drop" />
+        </div>
     </div>
-</body>
-</html>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Precio con Descuento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (products.length > 0) { %>
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td><%= product.name %></td>
+                        <td><%= product.stock %></td>
+                        <td>$<%= product.price %></td>
+                        <td>$<%= product.discountPrice %></td>
+                        <td>
+                            <a href="/products/<%= product.id %>/edit">Editar</a> |
+                            <form action="/products/<%= product.id %>?_method=DELETE" method="POST" style="display:inline;">
+                                <button type="submit" class="btn">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="5" class="table-empty">No se encontraron drops<br>Qué esperas para empezar a vender</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>

@@ -3,33 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Producto</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="stylesheet" href="/stylesheets/productStyles.css" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/stylesheets/createProduct.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
     <%- include('../partials/header') %>
-    <div class="cart-container">
-        <h1>Crear Producto</h1>
-        <form action="/products" method="POST" enctype="multipart/form-data">
-            <div class="product-details">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required><br>
-
-                <label for="description">Descripción:</label>
-                <textarea id="description" name="description" required></textarea><br>
-
-                <label for="price">Precio:</label>
-                <input type="number" id="price" name="price" required><br>
-
-                <!-- Campo para cargar la imagen -->
-                <label for="image">Imagen:</label>
-                <input type="file" id="image" name="image" accept="image/*"><br>
+    
+    <div class="container">
+        <h1><%= pageTitle %></h1>
+        <form action="<%= formAction %>" method="POST" enctype="multipart/form-data">
+            <!-- Campo para el nombre del producto -->
+            <div>
+                <label for="name">Nombre del Producto:</label>
+                <input type="text" id="name" name="name" value="<%= product ? product.name : '' %>" required>
             </div>
-            <button class="buy-button" type="submit">Crear Producto</button>
+
+            <!-- Marca -->
+            <div>
+                <label for="brand">Marca:</label>
+                <input type="text" id="brand" name="brand" value="<%= product ? product.brand : '' %>">
+            </div>
+
+            <!-- Modelo -->
+            <div>
+                <label for="model">Modelo:</label>
+                <input type="text" id="model" name="model" value="<%= product ? product.model : '' %>">
+            </div>
+
+            <!-- Precio -->
+            <div>
+                <label for="price">Precio:</label>
+                <input type="number" id="price" name="price" value="<%= product ? product.price : '' %>" required>
+            </div>
+
+            <!-- Inventario -->
+            <div>
+                <label for="inventory">Inventario:</label>
+                <input type="number" id="inventory" name="inventory" value="<%= product ? product.inventory : '' %>" required>
+            </div>
+
+            <!-- Negociable -->
+            <div>
+                <label for="negotiable">Negociable:</label>
+                <select id="negotiable" name="negotiable">
+                    <option value="1" <%= product && product.negotiable ? 'selected' : '' %>>Sí</option>
+                    <option value="0" <%= product && !product.negotiable ? 'selected' : '' %>>No</option>
+                </select>
+            </div>
+
+            <!-- Condición del producto -->
+            <div>
+                <label for="product_condition">Condición del Producto:</label>
+                <select id="product_condition" name="product_condition">
+                    <option value="Nuevo" <%= product && product.product_condition === 'Nuevo' ? 'selected' : '' %>>Nuevo</option>
+                    <option value="Usado" <%= product && product.product_condition === 'Usado' ? 'selected' : '' %>>Usado</option>
+                </select>
+            </div>
+
+            <!-- Ubicación -->
+            <div>
+                <label for="location">Ubicación:</label>
+                <input type="text" id="location" name="location" value="<%= product ? product.location : '' %>">
+            </div>
+
+            <!-- Descripción -->
+            <div>
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description" rows="4" required><%= product ? product.description : '' %></textarea>
+            </div>
+
+            <!-- Método de entrega -->
+            <div>
+                <label for="delivery_method">Método de Entrega:</label>
+                <select id="delivery_method" name="delivery_method">
+                    <option value="Envío a Domicilio" <%= product && product.delivery_method === 'Envío a Domicilio' ? 'selected' : '' %>>Envío a Domicilio</option>
+                    <option value="Recogida en Tienda" <%= product && product.delivery_method === 'Recogida en Tienda' ? 'selected' : '' %>>Recogida en Tienda</option>
+                </select>
+            </div>
+
+            <!-- Imagen -->
+            <div>
+                <label for="image">Imagen del Producto:</label>
+                <input type="file" id="image" name="image">
+                <% if (product && product.image) { %>
+                    <img src="/uploads/<%= product.image %>" alt="Imagen del Producto" width="100">
+                <% } %>
+            </div>
+
+            <!-- Categoría -->
+            <div>
+                <label for="categorie">Categoría:</label>
+                <select id="categorie" name="categorie">
+                    <% categorias.forEach(function(categoria) { %>
+                        <option value="<%= categoria %>" <%= product && product.categorie === categoria ? 'selected' : '' %>><%= categoria %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <!-- Subcategoría -->
+            <div>
+                <label for="subcategorie">Subcategoría:</label>
+                <select id="subcategorie" name="subcategorie">
+                    <% subcategorias.forEach(function(subcategoria) { %>
+                        <option value="<%= subcategoria %>" <%= product && product.subcategorie === subcategoria ? 'selected' : '' %>><%= subcategoria %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <!-- Botón de envío -->
+            <button type="submit"><%= buttonText %></button>
         </form>
-        
     </div>
-    <%- include('../partials/footer') %>
+    <%- include('../partials/footer', { user: user }) %>
 </body>
 </html>

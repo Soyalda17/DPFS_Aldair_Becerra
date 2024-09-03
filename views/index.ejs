@@ -17,8 +17,11 @@
         <div class="main-banner">
             <div class="carousel">
                 <div class="carousel-inner">
-                    <img src="/images/img/banner1.jpg" alt="Banner 1">
-                    <img src="/images/img/banner2.jpg" alt="Banner 2">
+                    <img src="/images/img/banner-carrusel1.jpg" alt="Banner 1">
+                    <img src="/images/img/banner-carrusel2.jpg" alt="Banner 2">
+                    <img src="/images/img/banner-carrusel3.jpg" alt="Banner 3">
+                    <img src="/images/img/banner-carrusel4.jpg" alt="Banner 4">
+                    <img src="/images/img/banner-carrusel5.jpg" alt="Banner 5">
                 </div>
             </div>
             <div class="banner1">
@@ -26,18 +29,21 @@
             </div>
         </div>
 
-        <!-- Categorías Populares -->
-        <div class="popular-categories">
-            <h2>CATEGORÍAS POPULARES</h2>
-            <div class="popular-items">
-                <% categorias.forEach(categoria => { %>
-                    <div class="popular-item">
-                        <img src="<%= categoria.image %>" alt="Icono <%= categoria.name %>">
-                        <div><%= categoria.name %></div>
-                    </div>
-                <% }) %>
+<!-- Categorías -->
+<div class="categories">
+    <h2>CATEGORÍAS</h2>
+    <div class="categories-items">
+        <% categorias.forEach(function(categoria) { %>
+            <div class="category-item">
+                <div class="category-circle">
+                    <img src="<%= categoria.image %>" alt="<%= categoria.name %>">
+                </div>
+                <span class="category-title"><%= categoria.name.toUpperCase() %></span>
             </div>
-        </div>
+        <% }); %>
+    </div>
+</div>
+
 
         <!-- Productos Recomendados -->
         <div class="recommended-items">
@@ -47,13 +53,13 @@
                     <div class="floating-item-container-wrapper">
                         <div class="floating-item-container">
                             <div class="floating-item-image">
-                                <img src="<%= product.image %>" alt="<%= product.name %>">
+                                <img src="/uploads/<%=product.image %>" alt="<%= product.name %>">
                             </div>
                             <div class="floating-item-info">
                                 <h3 class="item-title"><%= product.name %></h3>
                                 <p class="product-description"><%= product.description %></p>
                                 <p class="item-price">$<%= product.price %></p>
-                                <a href="/products/productDetails/<%= product.id %>" class="view-details-button">Ver Detalles</a>
+                                <a href="/products/<%= product.id %>" class="view-details-button">Ver Detalle</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +73,8 @@
         </div>
     </div>
 
-    <%- include('partials/footer') %>
+    <%- include('partials/footer', { user: user }) %>
+
     <script src="/javascripts/scripts.js"></script>
 </body>
 

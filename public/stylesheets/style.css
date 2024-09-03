@@ -101,7 +101,7 @@ body {
   width: 100%;
   height: 240px;
   overflow: hidden;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px 0 0 8px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -109,13 +109,18 @@ body {
   display: flex;
   transition: transform 0.5s ease;
   width: calc(100% * 5); /* Ajusta según el número total de imágenes */
+  display: -webkit-box; /* Soporte para navegadores más antiguos */
+  display: -ms-flexbox; /* Soporte para IE10 */
+  display: flex;
 }
 
+
 .carousel-inner img {
-  width: 100%; /* Muestra una imagen a la vez */
+  flex-shrink: 0; /* Asegura que las imágenes no se reduzcan */
   height: 240px;
   object-fit: cover;
 }
+
 
 .banner1 {
   background-color: #ffffff;
@@ -126,47 +131,51 @@ body {
 .banner1 img {   
   height: 240px;
   object-fit: contain;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 8px 8px 0;
 }
 
-/* Popular Categories */
-.popular-categories {
-  font-family: "Inter-Medium", sans-serif;
-  font-size: 16px;
-  color: #000;
-  margin-bottom: 20px;
-  background-color: #eff4f0;
-  border-radius: 10px 10px 0 0;
-  padding: 15px;
-}
-
-.popular-items {
-  display: flex;
-  flex-wrap: nowrap;
-  margin-top: 20px;
-  overflow-x: auto; /* Permite scroll horizontal si es necesario */
-  gap: 10px;
-}
-
-.popular-item {
-  color: #2b2c2e;
-  font-size: 15px;
-  line-height: 14px;
-  min-width: 150px;
+.categories {
   text-align: center;
-  padding-top: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  padding-bottom: 15px;
-  flex-shrink: 0;
+  padding: 20px;
 }
 
-.popular-item img {
+.categories-items {
+  display: flex; /* Flex para alinear los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  padding: 10px 0;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos verticalmente dentro de cada ítem */
+  align-items: center; /* Centra los elementos horizontalmente */
+  min-width: 100px; /* Ancho mínimo para cada ítem */
+  margin: 0 10px; /* Espacio horizontal entre ítems */
+  text-align: center; /* Centra el texto */
+}
+
+.category-circle {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: #fff;
-  padding: 2px;
+  background-color: #f0f0f0; /* Fondo gris para el círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  overflow: hidden; /* Oculta cualquier contenido que sobresalga del círculo */
+}
+
+.category-circle img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover; /* Ajusta la imagen dentro del círculo */
+}
+
+.category-title {
+  font-size: 12px;
+  margin-top: 5px; /* Espacio entre el círculo y el título */
 }
 
 /* Recommended Items */
@@ -326,7 +335,7 @@ body {
 
 .banner-info {
   padding-top: 40px;
-  background: #fff;
+  background-color: #d1d1d1;
   width: 100%;
 }
 
@@ -357,7 +366,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 1px;
-  background-color: #c7e8d1;
+  background-color: #d1d1d1;
   padding: 15px;
   border-radius: 10px 10px 0 0;
 }
@@ -365,7 +374,7 @@ body {
 .footer-feature {
   color: #0588f8;
   display: flex;
-  font-family: "Inter-Bold";
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   flex-direction: column;
   align-items: center;
@@ -391,7 +400,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 48px 32px;
-  background-color: #c7e8d1;
+  background-color: #d1d1d1;
 }
 
 .footer-left-side {
