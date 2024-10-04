@@ -12,6 +12,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en diferentes filas si es necesario */
 }
 
 /* Barra Lateral */
@@ -50,12 +51,23 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .profile-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* Imagen de Perfil */
+.profile-pic-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -63,11 +75,28 @@ body {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    margin-right: 20px;
+    object-fit: cover;
+    border: 2px solid #007bff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.upload-icon {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Información de Perfil */
 .profile-info {
     flex-grow: 1;
+    margin-left: 20px;
 }
 
 .profile-info h2 {
@@ -80,6 +109,7 @@ body {
     color: #666;
 }
 
+/* Botones de acción */
 .profile-actions .btn {
     margin-right: 10px;
     padding: 10px 20px;
@@ -123,4 +153,60 @@ body {
     padding: 40px;
     background-color: #f4f4f9;
     border-radius: 8px;
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-info {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-actions {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .profile-actions .btn {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .profile-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

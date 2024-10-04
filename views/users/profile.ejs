@@ -24,21 +24,29 @@
                 <li><a href="#">Historial de Pagos</a></li>
                 <li><a href="#">Wallet</a></li>
                 <li><a href="#">Ayuda</a></li>
-                <li><a href="/users/logout">Cerrar Sesión</a></li>
+                <li>
+                    <form id="logout-form" action="/users/logout" method="POST" style="display: inline;">
+                        <button type="submit" class="logout-link" style="background: none; border: none; color: inherit; text-decoration: none; cursor: pointer;">
+                            Cerrar Sesión
+                        </button>
+                    </form>
+                </li>
+                
             </ul>
         </aside>
 
         <!-- Contenido del perfil -->
         <main class="profile-content">
             <div class="profile-header">
-                <img class="profile-pic" src="/uploads/<%= user.image %>" alt="Imagen de Perfil">
+                <img class="profile-pic" src="<%= user.image ? '/uploads/' + user.image : '/images/default-profile.png' %>" alt="Imagen de Perfil">
+
                 <div class="profile-info">
                     <h2><%= user.name %></h2> 
                     <p>🌍 <%= user.location %></p> 
                     <p>📅 Tienes <%= Math.floor((new Date() - new Date(user.created_at)) / (1000 * 60 * 60 * 24 * 365)) %> años en CrateDrop</p>
                 </div>
                 <div class="profile-actions">
-                    <a href="/users/editProfile" class="btn primary">Editar Perfil</a>
+                    <a href="/users/profile/edit" class="btn primary">Editar Perfil</a>
                 </div>
             </div>
 

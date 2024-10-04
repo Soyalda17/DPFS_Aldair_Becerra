@@ -1,0 +1,153 @@
+[
+    {
+      "id": 1,
+      "name": "Teléfonos",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Accesorios",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Computadoras",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Camisetas",
+      "categoryId": 2
+    },
+    {
+      "id": 5,
+      "name": "Pantalones",
+      "categoryId": 2
+    },
+    {
+      "id": 6,
+      "name": "Zapatos",
+      "categoryId": 2
+    },
+    {
+      "id": 7,
+      "name": "Muebles",
+      "categoryId": 3
+    },
+    {
+      "id": 8,
+      "name": "Decoración",
+      "categoryId": 3
+    },
+    {
+      "id": 9,
+      "name": "Cocina",
+      "categoryId": 3
+    },
+    {
+      "id": 10,
+      "name": "Equipamiento",
+      "categoryId": 4
+    },
+    {
+      "id": 11,
+      "name": "Ropa Deportiva",
+      "categoryId": 4
+    },
+    {
+      "id": 12,
+      "name": "Calzado Deportivo",
+      "categoryId": 4
+    },
+    {
+      "id": 13,
+      "name": "Muñecas",
+      "categoryId": 5
+    },
+    {
+      "id": 14,
+      "name": "Construcción",
+      "categoryId": 5
+    },
+    {
+      "id": 15,
+      "name": "Juegos de Mesa",
+      "categoryId": 5
+    },
+    {
+      "id": 16,
+      "name": "Maquillaje",
+      "categoryId": 6
+    },
+    {
+      "id": 17,
+      "name": "Cuidado de la Piel",
+      "categoryId": 6
+    },
+    {
+      "id": 18,
+      "name": "Fragancias",
+      "categoryId": 6
+    },
+    {
+      "id": 19,
+      "name": "Accesorios de Auto",
+      "categoryId": 7
+    },
+    {
+      "id": 20,
+      "name": "Repuestos",
+      "categoryId": 7
+    },
+    {
+      "id": 21,
+      "name": "Herramientas",
+      "categoryId": 7
+    },
+    {
+      "id": 22,
+      "name": "Instrumentos",
+      "categoryId": 8
+    },
+    {
+      "id": 23,
+      "name": "Accesorios Musicales",
+      "categoryId": 8
+    },
+    {
+      "id": 24,
+      "name": "Vinilos",
+      "categoryId": 8
+    },
+    {
+      "id": 25,
+      "name": "Ficción",
+      "categoryId": 9
+    },
+    {
+      "id": 26,
+      "name": "No Ficción",
+      "categoryId": 9
+    },
+    {
+      "id": 27,
+      "name": "Libros Infantiles",
+      "categoryId": 9
+    },
+    {
+      "id": 28,
+      "name": "Snacks",
+      "categoryId": 10
+    },
+    {
+      "id": 29,
+      "name": "Bebidas",
+      "categoryId": 10
+    },
+    {
+      "id": 30,
+      "name": "Comida Gourmet",
+      "categoryId": 10
+    }
+  ]
+  

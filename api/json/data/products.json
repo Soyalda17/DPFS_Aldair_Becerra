@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Camiseta de Algodón",
+        "description": "Camiseta de algodón 100% cómoda y transpirable.",
+        "price": 19.99,
+        "categorie": "Ropa",
+        "subcategory": "Camisetas",
+        "image": "ruta/a/la/imagen1.jpg",
+        "created_at": "2024-09-29T12:00:00Z"
+    },
+    {
+        "id": 2,
+        "name": "Auriculares Bluetooth",
+        "description": "Auriculares inalámbricos con cancelación de ruido.",
+        "price": 49.99,
+        "categorie": "Tecnología",
+        "subcategory": "Audio",
+        "image": "ruta/a/la/imagen2.jpg",
+        "created_at": "2024-09-29T12:00:00Z"
+    },
+    {
+        "id": 3,
+        "name": "Reloj Inteligente",
+        "description": "Reloj inteligente con monitoreo de salud y notificaciones.",
+        "price": 89.99,
+        "categorie": "Tecnología",
+        "subcategory": "Wearables",
+        "image": "ruta/a/la/imagen3.jpg",
+        "created_at": "2024-09-29T12:00:00Z"
+    }
+]

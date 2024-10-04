@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "email": "micorreo@gmail.com",
+    "password": "$2b$10$Bkrvpohs5M.BtLwbsYEyMeYXUU9rey5D.BoDl9odkuugzgpcOPVY2",
+    "created_at": "2024-09-27T04:19:31.551Z",
+    "role": "user",
+    "image": "user-1727410771392.jpeg",
+    "location": "una ubicacion cualquiera"
+  },
+  {
+    "id": 2,
+    "name": "una cuenta",
+    "email": "micorreo1@gmail.com",
+    "password": "$2b$10$6VqRqdloySw1lRyZ3N.sSuBVjiRlYMHDujnXrBgoPTeR9Lp0byOKC",
+    "created_at": "2024-09-29T23:14:22.028Z",
+    "phone": "61142222",
+    "role": "user",
+    "image": "user-1727651661963.png",
+    "location": "una ubicacion"
+  },
+  {
+    "id": 3,
+    "name": "a",
+    "email": "aaa@aaa",
+    "password": "$2b$10$pQxK53Wu5S6TxBmP1lR7R.sXRhrWHu3ogg2qF8WkmmRE5i5nxKZk6",
+    "created_at": "2024-09-29T23:40:40.121Z",
+    "phone": "aaa",
+    "role": "user",
+    "image": null,
+    "location": "aaa"
+  },
+  {
+    "id": 4,
+    "name": "aaa",
+    "email": "aaa@a.com",
+    "password": "$2b$10$F7CbioWjuGaIoyeQmcuSee5l8kgJlz0Owirh0Sr363LhdywiTaUXC",
+    "created_at": "2024-09-29T23:42:39.960Z",
+    "phone": "aaa",
+    "role": "user",
+    "image": null,
+    "location": "aaa"
+  },
+  {
+    "id": 5,
+    "name": "a",
+    "email": "uncorreo@gmail.com",
+    "password": "$2b$10$1m0xT60Qb/Kgp7uus9hIZ.VT1myYnVAY9pHpusKX3vIjxQh.Vvt1q",
+    "created_at": "2024-09-29T23:55:58.383Z",
+    "phone": "a",
+    "role": "user",
+    "image": null,
+    "location": " "
+  },
+  {
+    "id": 6,
+    "name": "aaa",
+    "email": "unodostres@gmail.com",
+    "password": "$2b$10$RJhrPZv/Vsub4uPW1NT40O4z6G5GwXWU6J1Mvs0gNiUK2kPsZ6WQW",
+    "created_at": "2024-09-30T00:07:06.613Z",
+    "phone": "61114455",
+    "role": "user",
+    "image": "user-1727654826550.png",
+    "location": "aa"
+  },
+  {
+    "id": 7,
+    "name": "alda",
+    "email": "aaa@s.com",
+    "password": "$2b$10$wwJ.vj2xz9zbyyoqbq372us.pDK9BV2093k1fIvpS3XqhHBykJIvK",
+    "created_at": "2024-09-30T00:23:24.484Z",
+    "phone": "sssssss",
+    "role": "user",
+    "image": null,
+    "location": "ssss"
+  },
+  {
+    "id": 8,
+    "name": "aaa",
+    "email": "aaa@a.a",
+    "password": "$2b$10$3cuSpVpEPrcF6QcgXgREZ.okQUf4BMXPOcDegBqQ3xYmWoJPhBi6O",
+    "created_at": "2024-09-30T00:29:19.167Z",
+    "phone": "aa",
+    "role": "user",
+    "image": null,
+    "location": "aaa"
+  },
+  {
+    "id": 9,
+    "name": "aldairBecerra",
+    "email": "a@a.com",
+    "password": "$2b$10$0QEMgPqSB0CiKLp2Oq4yR.TWJ4VGst66h6beJXpru.YcMe1/Hsm4i",
+    "created_at": "2024-09-30T01:00:41.753Z",
+    "phone": "611444551",
+    "role": "user",
+    "image": null,
+    "location": "a"
+  },
+  {
+    "id": 10,
+    "name": "aldairpty",
+    "email": "aldair@gmail.com",
+    "password": "$2b$10$E8z92eksVH4vlpFBpun6r.1FsMluqbjiA97kyBDOIHpDcGr./aNci",
+    "created_at": "2024-10-01T03:08:14.824Z",
+    "phone": "61145521",
+    "role": "user",
+    "image": "user-1727752094748.jpg",
+    "location": "Colón"
+  },
+  {
+    "id": 11,
+    "name": "Soyaldair",
+    "email": "soyaldair17@gmail.com",
+    "password": "$2b$10$KyLl0.4phe1Eo7ieLBm.vOAtkVkUzrc9KH73/G3O0RN1PCoYrvGme",
+    "created_at": "2024-10-01T03:12:12.392Z",
+    "phone": "61145521",
+    "role": "user",
+    "image": "user-1727752332318.jpg",
+    "location": "una ubicacion cualquiera"
+  }
+]

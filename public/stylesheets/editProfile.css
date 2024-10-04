@@ -116,3 +116,67 @@
 .field-group select {
     flex: 2;
 }
+
+/* Estilos para validación visual */
+.formulario__grupo-correcto input {
+    border: 2px solid #1ed12d;
+}
+
+.formulario__grupo-incorrecto input {
+    border: 2px solid #bb2929;
+}
+
+.formulario__input-error {
+    font-size: 12px;
+    color: #bb2929;
+    display: none;
+}
+
+.formulario__input-error-activo {
+    display: block;
+}
+
+/* Estado de validación de campos */
+.formulario__validacion-estado {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
+}
+
+/* Mensaje de error global */
+.formulario__mensaje {
+    display: none;
+    background-color: #f66060;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.formulario__mensaje-activo {
+    display: block;
+}
+
+/* Mensaje de éxito */
+.formulario__mensaje-exito {
+    font-size: 14px;
+    color: #119200;
+    display: none;
+}
+
+.formulario__mensaje-exito-activo {
+    display: block;
+}

@@ -42,6 +42,13 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
 }
 
 textarea {
@@ -62,4 +69,117 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+/* Imagen previsualizada */
+img {
+    display: block;
+    margin-top: 10px;
+    max-width: 100px;
+    border-radius: 8px;
+}
+
+/* Estilos para validaciones */
+.formulario__grupo {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.formulario__grupo-incorrecto input,
+.formulario__grupo-incorrecto textarea,
+.formulario__grupo-incorrecto select {
+    border-color: #bb2929;
+}
+
+.formulario__grupo-correcto input,
+.formulario__grupo-correcto textarea,
+.formulario__grupo-correcto select {
+    border-color: #1ed12d;
+}
+
+.formulario__input-error {
+    font-size: 12px;
+    color: #ff6b6b;
+    display: none;
+}
+
+.formulario__input-error-activo {
+    display: block;
+}
+
+.formulario__validacion-estado {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    textarea,
+    select {
+        font-size: 12px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    img {
+        max-width: 80px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    textarea,
+    select {
+        font-size: 11px;
+    }
+
+    button[type="submit"] {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    img {
+        max-width: 70px;
+    }
 }

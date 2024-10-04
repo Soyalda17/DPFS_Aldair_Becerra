@@ -12,109 +12,82 @@
     
     <div class="container">
         <h1><%= pageTitle %></h1>
-        <form action="<%= formAction %>" method="POST" enctype="multipart/form-data">
-            <!-- Campo para el nombre del producto -->
-            <div>
+        <form action="<%= formAction %>" method="POST" enctype="multipart/form-data" id="formulario">
+            <!-- Nombre del Producto -->
+            <div class="formulario__grupo" id="grupo__name">
                 <label for="name">Nombre del Producto:</label>
-                <input type="text" id="name" name="name" value="<%= product ? product.name : '' %>" required>
+                <div class="formulario__grupo-input">
+                    <input type="text" id="name" name="name" value="<%= product ? product.name : '' %>" class="formulario__input" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">El nombre del producto es obligatorio y debe tener entre 3 y 50 caracteres.</p>
+                </div>
             </div>
 
-            <!-- Marca -->
-            <div>
-                <label for="brand">Marca:</label>
-                <input type="text" id="brand" name="brand" value="<%= product ? product.brand : '' %>">
-            </div>
-
-            <!-- Modelo -->
-            <div>
-                <label for="model">Modelo:</label>
-                <input type="text" id="model" name="model" value="<%= product ? product.model : '' %>">
-            </div>
-
-            <!-- Precio -->
-            <div>
+            <!-- Precio del Producto -->
+            <div class="formulario__grupo" id="grupo__price">
                 <label for="price">Precio:</label>
-                <input type="number" id="price" name="price" value="<%= product ? product.price : '' %>" required>
+                <div class="formulario__grupo-input">
+                    <input type="number" id="price" name="price" value="<%= product ? product.price : '' %>" class="formulario__input" required step="0.01">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">El precio es obligatorio y debe ser mayor a 0.</p>
+                </div>
             </div>
 
-            <!-- Inventario -->
-            <div>
-                <label for="inventory">Inventario:</label>
-                <input type="number" id="inventory" name="inventory" value="<%= product ? product.inventory : '' %>" required>
-            </div>
-
-            <!-- Negociable -->
-            <div>
-                <label for="negotiable">Negociable:</label>
-                <select id="negotiable" name="negotiable">
-                    <option value="1" <%= product && product.negotiable ? 'selected' : '' %>>Sí</option>
-                    <option value="0" <%= product && !product.negotiable ? 'selected' : '' %>>No</option>
-                </select>
-            </div>
-
-            <!-- Condición del producto -->
-            <div>
-                <label for="product_condition">Condición del Producto:</label>
-                <select id="product_condition" name="product_condition">
-                    <option value="Nuevo" <%= product && product.product_condition === 'Nuevo' ? 'selected' : '' %>>Nuevo</option>
-                    <option value="Usado" <%= product && product.product_condition === 'Usado' ? 'selected' : '' %>>Usado</option>
-                </select>
-            </div>
-
-            <!-- Ubicación -->
-            <div>
-                <label for="location">Ubicación:</label>
-                <input type="text" id="location" name="location" value="<%= product ? product.location : '' %>">
-            </div>
-
-            <!-- Descripción -->
-            <div>
+            <!-- Descripción del Producto -->
+            <div class="formulario__grupo" id="grupo__description">
                 <label for="description">Descripción:</label>
-                <textarea id="description" name="description" rows="4" required><%= product ? product.description : '' %></textarea>
+                <div class="formulario__grupo-input">
+                    <textarea id="description" name="description" rows="4" class="formulario__input" required><%= product ? product.description : '' %></textarea>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">La descripción debe tener entre 10 y 500 caracteres.</p>
+                </div>
             </div>
 
-            <!-- Método de entrega -->
-            <div>
-                <label for="delivery_method">Método de Entrega:</label>
-                <select id="delivery_method" name="delivery_method">
-                    <option value="Envío a Domicilio" <%= product && product.delivery_method === 'Envío a Domicilio' ? 'selected' : '' %>>Envío a Domicilio</option>
-                    <option value="Recogida en Tienda" <%= product && product.delivery_method === 'Recogida en Tienda' ? 'selected' : '' %>>Recogida en Tienda</option>
-                </select>
+            <!-- Inventario del Producto -->
+            <div class="formulario__grupo" id="grupo__stock">
+                <label for="stock">Inventario:</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" id="stock" name="stock" value="<%= product ? product.stock : 0 %>" class="formulario__input" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">El inventario es obligatorio y debe ser un número mayor o igual a 0.</p>
+                </div>
             </div>
 
-            <!-- Imagen -->
-            <div>
+            <!-- Subir Imagen del Producto -->
+            <div class="formulario__grupo" id="grupo__image">
                 <label for="image">Imagen del Producto:</label>
-                <input type="file" id="image" name="image">
-                <% if (product && product.image) { %>
-                    <img src="/uploads/<%= product.image %>" alt="Imagen del Producto" width="100">
-                <% } %>
+                <div class="formulario__grupo-input">
+                    <input type="file" id="image" name="image" class="formulario__input">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">Error al cargar la imagen.</p>
+                    <% if (product && product.image) { %>
+                        <img src="/uploads/<%= product.image %>" alt="Imagen del Producto" width="100">
+                    <% } %>
+                </div>
             </div>
 
             <!-- Categoría -->
-            <div>
-                <label for="categorie">Categoría:</label>
-                <select id="categorie" name="categorie">
-                    <% categorias.forEach(function(categoria) { %>
-                        <option value="<%= categoria %>" <%= product && product.categorie === categoria ? 'selected' : '' %>><%= categoria %></option>
-                    <% }) %>
-                </select>
+            <div class="formulario__grupo" id="grupo__category_id">
+                <label for="category_id">Categoría:</label>
+                <div class="formulario__grupo-input">
+                    <select id="category_id" name="category_id" class="formulario__input" required>
+                        <% categorias.forEach(function(categoria) { %>
+                            <option value="<%= categoria.id %>" <%= product && product.category_id === categoria.id ? 'selected' : '' %>><%= categoria.name %></option>
+                        <% }) %>
+                    </select>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">Debe seleccionar una categoría válida.</p>
+                </div>
             </div>
 
-            <!-- Subcategoría -->
-            <div>
-                <label for="subcategorie">Subcategoría:</label>
-                <select id="subcategorie" name="subcategorie">
-                    <% subcategorias.forEach(function(subcategoria) { %>
-                        <option value="<%= subcategoria %>" <%= product && product.subcategorie === subcategoria ? 'selected' : '' %>><%= subcategoria %></option>
-                    <% }) %>
-                </select>
-            </div>
-
-            <!-- Botón de envío -->
-            <button type="submit"><%= buttonText %></button>
+            <!-- Botón de Enviar -->
+            <button type="submit">Crear Producto</button>
         </form>
     </div>
+
     <%- include('../partials/footer', { user: user }) %>
+    <!-- Agregar el script de validación al final -->
+    <script src="/javascripts/createProducts.js"></script>
+    <script src="https://kit.fontawesome.com/82af38c790.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "name": "Electrónica"
+    },
+    {
+      "id": 2,
+      "name": "Ropa"
+    },
+    {
+      "id": 3,
+      "name": "Hogar"
+    },
+    {
+      "id": 4,
+      "name": "Deportes"
+    },
+    {
+      "id": 5,
+      "name": "Juguetes"
+    },
+    {
+      "id": 6,
+      "name": "Belleza"
+    },
+    {
+      "id": 7,
+      "name": "Automóvil"
+    },
+    {
+      "id": 8,
+      "name": "Música"
+    },
+    {
+      "id": 9,
+      "name": "Libros"
+    },
+    {
+      "id": 10,
+      "name": "Alimentos"
+    }
+  ]
+  

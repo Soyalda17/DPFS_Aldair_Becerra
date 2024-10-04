@@ -13,19 +13,24 @@
     <div class="cart-container">
         <h1>Productos</h1>
         <ul>
-            <% products.forEach(product => { %>
+            <% productos.forEach(product => { %>
                 <li class="product-overview">
                     <div class="product-image">
-                        <img src="/uploads/<%=product.image %>" alt="<%= product.name %>">
+                        <img src="/images/img/<%= product.image %>" alt="<%= product.name %>">
                     </div>
                     <div class="product-details">
                         <h2><%= product.name %></h2>
                         <p class="product-description"><%= product.description %></p>
                         <p class="product-price">Precio: $<%= product.price %></p>
                         <!-- Solo mostrar "Ver Detalle" -->
-                        <a href="/products/productDetails/<%= product.id %>">Ver Detalle</a>
+                        <a href="/products/<%= product.id %>">Ver Detalle</a>
+                        <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST";>
+                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?')">Eliminar</button>
+                        </form>
+                        
                     </div>
                 </li>
+                
             <% }) %>
         </ul>
     </div>

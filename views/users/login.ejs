@@ -1,32 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <!-- login.ejs y register.ejs -->
-<link rel="stylesheet" href="/stylesheets/auth.css">
-
+    <link rel="stylesheet" href="/stylesheets/auth.css">
     <title>Iniciar Sesión - CrateDrop</title>
 </head>
+
 <body>
     <div class="auth-container">
-        <div class="image-placeholder" >
-            <img src="/images/img/logo_crate_drop_01.png" alt="logo CrateDrop 01">
+        <div class="image-placeholder">
+            <img src="/images/img/logo_crate_drop_01.png" alt="logo CrateDrop">
         </div>
         <div class="auth-form">
             <h2>INICIA SESIÓN</h2>
             <p>ENTRA A LA COMUNIDAD DE CONFIANZA</p>
-            
-            <form action="/users/login" method="POST">
-                <div class="form-group">
-                    <label for="email">CORREO ELECTRÓNICO</label>
-                    <input type="email" id="email" name="email" placeholder="EJEMPLO@EMAIL.COM" required>
+
+            <!-- Mostrar mensaje de error si existe -->
+            <% if (typeof error !== 'undefined' && error) { %>
+            <div class="error-message">
+                <p><i class="fa-solid fa-triangle-exclamation"></i> <%= error %></p>
+            </div>
+            <% } %>
+
+            <form action="/users/login" method="POST" class="formulario" id="loginForm">
+                <div class="formulario__grupo" id="grupo__email">
+                    <label for="email" class="formulario__label">CORREO ELECTRÓNICO</label>
+                    <div class="formulario__group-input">
+                        <input type="email" id="email" name="email" class="formulario__input" placeholder="EJEMPLO@EMAIL.COM" required>
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <p class="formulario__input-error">Debe ser un email válido.</p>
+                    </div>
                 </div>
-                
+
+                <div class="formulario__grupo" id="grupo__password">
+                    <label for="password" class="formulario__label">CONTRASEÑA</label>
+                    <div class="formulario__group-input">
+                        <input type="password" id="password" name="password" class="formulario__input" placeholder="*******" required>
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <p class="formulario__input-error">La contraseña debe tener entre 8 y 35 caracteres.</p>
+                    </div>
+                </div>
+
+                <!-- Mensaje de error general -->
+                <div id="formulario__mensaje" class="formulario__mensaje">
+                    <p><i class="fa-solid fa-triangle-exclamation"></i> Por favor completa correctamente el formulario.</p>
+                </div>
+
                 <div class="form-group">
-                    <label for="password">CONTRASEÑA</label>
-                    <input type="password" id="password" name="password" placeholder="*******" required>
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Recordarme</label>
                 </div>
 
                 <button type="submit" class="auth-button">INICIAR SESIÓN</button>
@@ -36,5 +61,8 @@
         </div>
     </div>
 
+    <script src="/javascripts/login.js"></script>
+    <script src="https://kit.fontawesome.com/82af38c790.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
