@@ -16,6 +16,7 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+// Leer y cargar todos los modelos en el directorio
 fs
   .readdirSync(__dirname)
   .filter(file => {
@@ -31,15 +32,35 @@ fs
     db[model.name] = model;
   });
 
+// Establecer las asociaciones para todos los modelos cargados
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
 });
 
+// Cargar modelos manualmente si es necesario (en caso de que no se carguen con fs.readdirSync)
+db.User = require('./user')(sequelize, Sequelize.DataTypes);
+db.Product = require('./product')(sequelize, Sequelize.DataTypes);
+db.Category = require('./category')(sequelize, Sequelize.DataTypes);
+db.Cart = require('./cart')(sequelize, Sequelize.DataTypes);
+db.CartItem = require('./cartItem')(sequelize, Sequelize.DataTypes);
+
+// Establecer asociaciones manualmente si no fueron detectadas
+if (db.Product.associate) {
+  db.Product.associate(db);
+}
+if (db.Category.associate) {
+  db.Category.associate(db);
+}
+if (db.Cart.associate) {
+  db.Cart.associate(db);
+}
+if (db.CartItem.associate) {
+  db.CartItem.associate(db);
+}
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-db.User = require('./user')(sequelize, Sequelize.DataTypes);
-
 
 module.exports = db;

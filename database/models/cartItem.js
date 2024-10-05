@@ -1,26 +1,51 @@
-module.exports = (sequelize, DataTypes) => {
-
+module.exports = function(sequelize, DataTypes) {
   let alias = 'CartItem';
 
   let cols = {
     id: {
       autoIncrement: true,
       primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    cart_id: {
       type: DataTypes.INTEGER,
+      references: {
+        model: 'carts', // Debe hacer referencia a la tabla `carts`
+        key: 'id'
+      }
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'products', // Debe hacer referencia a la tabla `products`
+        key: 'id'
+      }
     },
     quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      defaultValue: 1
     }
   };
 
   let config = {
-    tableName: 'cart_items',  // El nombre de la tabla según tu base de datos
-    timestamps: true,  // Si usas created_at y updated_at
-    underscored: true,  // Para usar guiones bajos en los campos de la base de datos
+    tableName: 'cart_items',  // Asegúrate de que esta sea la tabla correcta
+    timestamps: false
   };
 
   const CartItem = sequelize.define(alias, cols, config);
+  CartItem.associate = function(models) {
+    CartItem.belongsTo(models.Cart, {
+      foreignKey: 'cart_id',
+      as: 'cart'
+    });
+  
+    CartItem.belongsTo(models.Product, {
+      foreignKey: 'product_id',
+      as: 'product'
+    });
+  };
+     
 
   return CartItem;
 };

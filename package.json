@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "dev": "nodemon ./bin/www --watch views --watch public & browser-sync start --proxy 'http://localhost:3000' --files 'public/**/*, views/**/*'"
+    "client": "npm start --prefix dashboard", 
+    "build": "npm run build --prefix dashboard",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -22,7 +24,9 @@
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "browser-sync": "^3.0.2",
+    "concurrently": "^9.0.1",
     "nodemon": "^3.1.4"
   }
 }

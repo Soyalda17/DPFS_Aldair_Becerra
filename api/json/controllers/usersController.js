@@ -9,56 +9,56 @@ const { validationResult } = require('express-validator');
 
 
 const usersController = {
-    // list: async (req, res) => {
-    //     try {
-    //         // Obtenemos el número de página de la consulta, por defecto es la página 1
-    //         const page = req.query.page ? parseInt(req.query.page) : 1;
-    //         const limit = 10; // Número de usuarios por página
-    //         const offset = (page - 1) * limit; // Desplazamiento según la página
+    list: async (req, res) => {
+        try {
+            // Obtenemos el número de página de la consulta, por defecto es la página 1
+            const page = req.query.page ? parseInt(req.query.page) : 1;
+            const limit = 10; // Número de usuarios por página
+            const offset = (page - 1) * limit; // Desplazamiento según la página
 
-    //         // Usamos Sequelize para obtener los usuarios con paginación
-    //         const users = await User.findAndCountAll({
-    //             limit,
-    //             offset,
-    //             attributes: ['id', 'name', 'email'], // Puedes ajustar los atributos que quieres devolver
-    //         });
+            // Usamos Sequelize para obtener los usuarios con paginación
+            const users = await User.findAndCountAll({
+                limit,
+                offset,
+                attributes: ['id', 'name', 'email'], // Puedes ajustar los atributos que quieres devolver
+            });
 
-    //         // Calculamos la cantidad de páginas
-    //         const totalPages = Math.ceil(users.count / limit);
+            // Calculamos la cantidad de páginas
+            const totalPages = Math.ceil(users.count / limit);
 
-    //         // Enviamos la respuesta con los usuarios y los datos de paginación
-    //         res.json({
-    //             users: users.rows,
-    //             totalPages,
-    //             currentPage: page,
-    //             next: page < totalPages ? `/api/users?page=${page + 1}` : null,
-    //             previous: page > 1 ? `/api/users?page=${page - 1}` : null,
-    //         });
-    //     } catch (error) {
-    //         res.status(500).json({ error: 'Error al obtener el listado de usuarios' });
-    //     }
-    // },
+            // Enviamos la respuesta con los usuarios y los datos de paginación
+            res.json({
+                users: users.rows,
+                totalPages,
+                currentPage: page,
+                next: page < totalPages ? `/api/users?page=${page + 1}` : null,
+                previous: page > 1 ? `/api/users?page=${page - 1}` : null,
+            });
+        } catch (error) {
+            res.status(500).json({ error: 'Error al obtener el listado de usuarios' });
+        }
+    },
 
-    // detail: async (req, res) => {
-    //     try {
-    //         const userId = req.params.id;
+    detail: async (req, res) => {
+        try {
+            const userId = req.params.id;
 
-    //         // Buscar el usuario por su ID
-    //         const user = await User.findByPk(userId, {
-    //             attributes: ['id', 'name', 'email', 'createdAt', 'updatedAt'], // Ajusta los atributos según tus necesidades
-    //         });
+            // Buscar el usuario por su ID
+            const user = await User.findByPk(userId, {
+                attributes: ['id', 'name', 'email', 'createdAt', 'updatedAt'], // Ajusta los atributos según tus necesidades
+            });
 
-    //         // Si no se encuentra el usuario, enviar error 404
-    //         if (!user) {
-    //             return res.status(404).json({ error: 'Usuario no encontrado' });
-    //         }
+            // Si no se encuentra el usuario, enviar error 404
+            if (!user) {
+                return res.status(404).json({ error: 'Usuario no encontrado' });
+            }
 
-    //         // Enviar los datos del usuario
-    //         res.json(user);
-    //     } catch (error) {
-    //         res.status(500).json({ error: 'Error al obtener el detalle del usuario' });
-    //     }
-    // },
+            // Enviar los datos del usuario
+            res.json(user);
+        } catch (error) {
+            res.status(500).json({ error: 'Error al obtener el detalle del usuario' });
+        }
+    },
     
     showRegisterForm: (req, res) => {
         res.render('users/register', {

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  let alias = 'user';
+  let alias = 'user'; // Alias en minúsculas
 
   let cols = {
     id: {
@@ -27,21 +27,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100)
     },
     image: {
-      type: DataTypes.STRING,  // Campo para almacenar el nombre del archivo de imagen
+      type: DataTypes.STRING,
       allowNull: true
-  },
+    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW  // Esto asegura que se cree automáticamente la fecha de creación
+      defaultValue: DataTypes.NOW
     }
   };
 
   let config = {
     tableName: 'users',
-    timestamps: true,  // Mantener `created_at`
-    updatedAt: false,  // Deshabilitar `updated_at`
-    underscored: true  // Usar `created_at` con guiones bajos
+    timestamps: true,
+    updatedAt: false,
+    underscored: true
   };
 
   const User = sequelize.define(alias, cols, config);

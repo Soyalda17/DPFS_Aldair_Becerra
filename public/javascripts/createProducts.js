@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const expresiones = {
         name: /^[a-zA-ZÀ-ÿ0-9\s,.-]{3,50}$/, // Letras y espacios entre 3 y 50 caracteres
         price: /^\d+(\.\d{1,2})?$/, // Precios con hasta 2 decimales
-        description: /^[a-zA-ZÀ-ÿ0-9\s,.-]{1,100}$/, // Entre 10 y 500 caracteres
-        stock: /^\d{1,10}$/ // Solo números
+        description: /^[a-zA-ZÀ-ÿ0-9\s,.-]{1,500}$/, // Entre 10 y 500 caracteres
+        stock: /^\d{1,1000}$/ // Solo números
     };
 
     const campos = {

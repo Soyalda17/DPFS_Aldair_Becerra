@@ -7,8 +7,14 @@ const session = require('express-session');
 const indexRouter = require('./api/json/routes/index');
 const usersRouter = require('./api/json/routes/users');
 const productsRouter = require('./api/json/routes/products');
+const apiUsersRouter  = require('./api/json/routes/api/users');
+const apiProductsRouter  = require('./api/json/routes/api/products');
+const categoriesApiController   = require('./api/json/routes/api/categories');
+const lastCreatedRoutes = require('./api/json/routes/api/lastCreated');
+
 const isAuthenticated = require('./middlewares/auth');
 const db = require('./database/models');
+const cors = require('cors');
 
 const app = express();
 
@@ -36,7 +42,22 @@ app.use(session({
 // Define las rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products', isAuthenticated, productsRouter); 
+app.use('/products', isAuthenticated, productsRouter);
+app.use('/api/users', apiUsersRouter );
+app.use('/api/products', apiProductsRouter );
+app.use('/api/categories', categoriesApiController );
+app.use('/api/lastCreated', lastCreatedRoutes);
+
+
+// Sirviendo el dashboard (React) desde la carpeta 'build'
+app.use('/dashboard', express.static(path.join(__dirname, 'dashboard/build')));
+
+// Servir el archivo index.html de React en caso de que accedas directamente
+app.get('/dashboard/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dashboard/build', 'index.html'));
+});
+
+
 
 // Manejo de errores 404
 app.use((req, res, next) => {

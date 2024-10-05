@@ -34,8 +34,8 @@ main {
 
 .image-placeholder {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 75%;
 }
@@ -73,7 +73,7 @@ main {
 	line-height: 45px;
 	padding: 0 40px 0 10px;
 	transition: .3s ease all;
-	margin-bottom: 0; /* Asegura que el margen del input no cause problemas */
+	margin-bottom: 0;
 }
 
 .formulario__input:focus {
@@ -99,8 +99,8 @@ main {
 .formulario__validacion-estado {
     position: absolute;
     right: 10px;
-    top: 18%;  /* Ajustado para centrar verticalmente el ícono */
-    transform: translateY(30%);  /* Asegura el centrado vertical */
+    top: 18%; 
+    transform: translateY(30%);  
     z-index: 100;
     font-size: 16px;
     opacity: 0;

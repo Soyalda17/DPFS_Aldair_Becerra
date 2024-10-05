@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ajustar las expresiones regulares
     const expresiones = {
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        password: /^[a-zA-Z0-9_.+-]{8,35}$/ // Permitir letras, números, guiones bajos, guiones, puntos y otros caracteres.
+        password: /^[a-zA-ZÀ-ÿ0-9\s,.-]{8,35}$/, // 8 a 35 caracteres
     };
 
     const campos = {

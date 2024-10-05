@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const expresiones = {
         nombre: /^[a-zA-ZÀ-ÿ\s]{3,25}$/, // Letras y espacios
-        telefono: /^\d{9,14}$/, // 9 a 14 números
+        telefono: /^\d{8,14}$/, // 8 a 14 números
         location: /^[a-zA-ZÀ-ÿ0-9\s,.-]{1,100}$/ // Ubicación con letras, números y puntuaciones
     };
 
