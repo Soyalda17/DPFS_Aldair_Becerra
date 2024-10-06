@@ -15,14 +15,119 @@ Será compuesta pora personas apasionadas por la tecnología y la innovación. N
 
 Para ajustarnos a nuestro público, hemos implementado una interfaz fácil de usar y un sistema de recomendaciones personalizadas que garantizan que cada usuario encuentre lo que busca de manera rápida y eficiente. Nuestro objetivo es proporcionar una experiencia de compra en línea cómoda y satisfactoria, con entregas rápidas y seguras directamente a la puerta del cliente.
 
-## Enlace al Tablero
 
-Una vez configurado tu tablero, copia el enlace del mismo y añádelo a tu archivo README.md para que sea accesible desde tu repositorio.
+## REFERENCIA DE PROYECTOS
+[geekydrop](https://geekydrop.com/)
+[Amazon](https://www.amazon.com/)
+[eBay](https://www.ebay.com/)
+[Etsy](https://www.etsy.com/)
+[Alibaba](https://www.alibaba.com/)
+
+
+## Enlace al Tablero
 
 [Ver el tablero del proyecto](https://github.com/users/Soyalda17/projects/1/views/1)
 
-## Retroespectiva del sprint 2
-- Qué hiciste bien: crear las paginas lo mas parecidos a las wireframes.
-- Qué hiciste mal: la configuracion de nodemon ha sido un problema para mí, las rutas y el cambio de extension de archivo de html a ejes.
-- Qué deberías empezar a hacer: seguir revisando  cada detalle que no terminé.
-- Qué deberías dejar de hacer: Evitar prácticas que ralentizan el proceso, como la falta de documentación o no priorizar adecuadamente las tareas.
+## Sprint 1: Definición de la temática y wireframes
+Lo que funcionó bien: Definición de la temática y wireframes
+
+    Se definió bien la temática del sitio y se completaron los wireframes.
+
+Lo que podría mejorar:
+
+    La búsqueda de referencias fue algo limitada.
+
+Acciones para mejorar:
+
+    Dedicar más tiempo a explorar ejemplos antes de crear wireframes.
+  
+## Sprint 2: Maquetación con HTML y CSS
+Lo que funcionó bien:
+
+    La estructura HTML y CSS fue bien implementada.
+
+Lo que podría mejorar:
+
+    Algunos detalles estéticos necesitaron ajustes adicionales.
+
+Acciones para mejorar:
+
+    Revisar mejor el diseño antes de darlo por terminado.
+
+## Sprint 3: Reutilización de componentes y EJS
+Lo que funcionó bien:
+
+    Se logró reutilizar componentes como el header y el footer.
+
+Lo que podría mejorar:
+
+    Hubo dificultades en la separación de vistas en carpetas.
+
+Acciones para mejorar:
+
+    Planificar mejor la organización de archivos desde el inicio.
+
+## Sprint 4: CRUD con JSON
+Lo que funcionó bien:
+
+    Se implementó correctamente el CRUD de productos con datos JSON.
+
+Lo que podría mejorar:
+
+    La integración de imágenes fue complicada y causó retrasos.
+
+Acciones para mejorar:
+
+    Anticipar los desafíos de manejar imágenes en los formularios.
+
+## Sprint 5: Registro y login de usuarios
+Lo que funcionó bien:
+
+    Se implementó el registro y login con sesiones y cookies.
+
+Lo que podría mejorar:
+
+    Las validaciones de contraseñas tardaron más de lo esperado.
+
+Acciones para mejorar:
+
+    Hacer más pruebas antes de implementar validaciones de seguridad.
+
+## Sprint 6: Base de datos y Sequelize
+Lo que funcionó bien:
+
+    La transición a SQL y Sequelize se completó con éxito.
+
+Lo que podría mejorar:
+
+    Hubo problemas iniciales con las relaciones entre tablas.
+
+Acciones para mejorar:
+
+    Planificar mejor el diagrama de la base de datos.
+
+## Sprint 7: Validaciones de back-end y front-end
+Lo que funcionó bien:
+
+    Las validaciones con Express Validator y JavaScript se implementaron correctamente.
+
+Lo que podría mejorar:
+
+    Hubo retrasos en algunas validaciones de front-end.
+
+Acciones para mejorar:
+
+    Alinear mejor las validaciones de back-end y front-end.
+
+## Sprint 8: API y Dashboard en React
+Lo que funcionó bien:
+
+    Las APIs de usuarios y productos fueron bien implementadas.
+
+Lo que podría mejorar:
+
+    Hubo problemas al integrar el paginado en la API.
+
+Acciones para mejorar:
+
+    Dedicar más tiempo a probar la API antes de integrarla con el dashboard.
