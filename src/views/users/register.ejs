@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <title>Registro - CrateDrop</title>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="image-placeholder">
+            <img src="/images/img/logo_crate_drop_01.png" alt="logo CrateDrop">
+        </div>
+
+        <div class="auth-form">
+            <h2>BIENVENIDO A CRATEDROP</h2>
+            <p>NECESITAMOS UNOS DATOS BÁSICOS PARA EMPEZAR</p>
+
+            <!-- Mostrar los errores de validación solo si existen -->
+            <% if (errorMessages.length > 0) { %>
+            <div class="formulario__mensaje formulario__mensaje-activo">
+                <ul>
+                    <% errorMessages.forEach(function(error) { %>
+                    <li><%= error.msg %></li>
+                    <% }); %>
+                </ul>
+            </div>
+            <% } %>
+
+            <!-- Formulario de registro -->
+            <form action="/users/register" method="POST" enctype="multipart/form-data" class="formulario" id="formulario">
+                <div class="formulario__grupo" id="grupo__nombre">
+                    <label for="nombre" class="formulario__label">Nombre:</label>
+                    <div class="formulario__group-input">
+                        <input type="text" id="nombre" name="nombre" class="formulario__input"
+                            value="<%= oldData.nombre || '' %>" required>
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <p class="formulario__input-error">El nombre debe tener entre 8 y 25 caracteres.</p>
+                    </div>
+                </div>
+
+                <div class="formulario__grupo" id="grupo__email">
+                    <label for="email" class="formulario__label">Correo Electrónico:</label>
+                    <div class="formulario__group-input">
+                        <input type="email" id="email" name="email" class="formulario__input"
+                            value="<%= oldData.email || '' %>" required>
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <p class="formulario__input-error">Debe ser un email válido.</p>
+                    </div>
+                </div>
+
+                <div class="formulario__grupo" id="grupo__password">
+                    <label for="password" class="formulario__label">Contraseña:</label>
+                    <div class="formulario__group-input">
+                        <input type="password" id="password" name="password" class="formulario__input" required>
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <p class="formulario__input-error">La contraseña debe tener al menos 8 caracteres y un número.</p>
+                    </div>
+                </div>
+
+                <div class="formulario__grupo" id="grupo__telefono">
+                    <label for="telefono" class="formulario__label">Teléfono:</label>
+                    <div class="formulario__group-input">
+                        <input type="text" id="telefono" name="telefono" class="formulario__input"
+                            value="<%= oldData.telefono || '' %>" required>
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <p class="formulario__input-error">El teléfono debe ser numérico y contener al menos 9 dígitos.</p>
+                    </div>
+                </div>
+
+                <div class="formulario__grupo" id="grupo__location">
+                    <label for="location" class="formulario__label">Ubicación:</label>
+                    <div class="formulario__group-input">
+                        <input type="text" id="location" name="location" class="formulario__input"
+                            value="<%= oldData.location || '' %>" required>
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <p class="formulario__input-error">La ubicación es obligatoria.</p>
+                    </div>
+                </div>
+
+                <div class="formulario__grupo" id="grupo__image">
+                    <label for="image" class="formulario__label">Imagen:</label>
+                    <div class="formulario__group-input">
+                        <input type="file" id="image" name="image" class="formulario__input" accept="image/*">
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <p class="formulario__input-error">Error al cargar la imagen.</p>
+                    </div>
+                </div>
+
+                <div class="formulario__group-btn-enviar">
+                    <button type="submit" class="formulario__btn">Registrarse</button>
+                </div>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">¡Formulario enviado exitosamente!</p>
+                <p class="formulario__mensaje" id="formulario__mensaje">Completa todos los campos correctamente antes de enviar.</p>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="/javascripts/register.js"></script>
+    <script src="https://kit.fontawesome.com/82af38c790.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

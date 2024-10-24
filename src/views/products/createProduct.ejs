@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/stylesheets/createProduct.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    
+    <div class="container">
+        <h1><%= pageTitle %></h1>
+        <form action="<%= formAction %>" method="POST" enctype="multipart/form-data" id="formulario">
+            <!-- Nombre del Producto -->
+            <div class="formulario__grupo" id="grupo__name">
+                <label for="name">Nombre del Producto:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" id="name" name="name" value="<%= product ? product.name : '' %>" class="formulario__input" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">El nombre del producto es obligatorio y debe tener entre 3 y 50 caracteres.</p>
+                </div>
+            </div>
+
+            <!-- Precio del Producto -->
+            <div class="formulario__grupo" id="grupo__price">
+                <label for="price">Precio:</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" id="price" name="price" value="<%= product ? product.price : '' %>" class="formulario__input" required step="0.01">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">El precio es obligatorio y debe ser mayor a 0.</p>
+                </div>
+            </div>
+
+            <!-- Descripción del Producto -->
+            <div class="formulario__grupo" id="grupo__description">
+                <label for="description">Descripción:</label>
+                <div class="formulario__grupo-input">
+                    <textarea id="description" name="description" rows="4" class="formulario__input" required><%= product ? product.description : '' %></textarea>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">La descripción debe tener entre 10 y 500 caracteres.</p>
+                </div>
+            </div>
+
+            <!-- Inventario del Producto -->
+            <div class="formulario__grupo" id="grupo__stock">
+                <label for="stock">Inventario:</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" id="stock" name="stock" value="<%= product ? product.stock : 0 %>" class="formulario__input" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">El inventario es obligatorio y debe ser un número mayor o igual a 0.</p>
+                </div>
+            </div>
+
+            <!-- Subir Imagen del Producto -->
+            <div class="formulario__grupo" id="grupo__image">
+                <label for="image">Imagen del Producto:</label>
+                <div class="formulario__grupo-input">
+                    <input type="file" id="image" name="image" class="formulario__input">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">Error al cargar la imagen.</p>
+                    <% if (product && product.image) { %>
+                        <img src="/uploads/<%= product.image %>" alt="Imagen del Producto" width="100">
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Categoría -->
+            <div class="formulario__grupo" id="grupo__category_id">
+                <label for="category_id">Categoría:</label>
+                <div class="formulario__grupo-input">
+                    <select id="category_id" name="category_id" class="formulario__input" required>
+                        <% categorias.forEach(function(categoria) { %>
+                            <option value="<%= categoria.id %>" <%= product && product.category_id === categoria.id ? 'selected' : '' %>><%= categoria.name %></option>
+                        <% }) %>
+                    </select>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    <p class="formulario__input-error">Debe seleccionar una categoría válida.</p>
+                </div>
+            </div>
+
+            <!-- Botón de Enviar -->
+            <button type="submit">Crear Producto</button>
+        </form>
+    </div>
+
+    <%- include('../partials/footer', { user: user }) %>
+    
+    <script src="/javascripts/createProducts.js"></script>
+    <script src="https://kit.fontawesome.com/82af38c790.js" crossorigin="anonymous"></script>
+</body>
+</html>

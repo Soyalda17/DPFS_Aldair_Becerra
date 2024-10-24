@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/productStyles.css" />
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <div class="cart-container">
+        <!-- Sección del producto principal -->
+        <div class="product-overview">
+            <div class="product-image">
+                <!-- Usa la imagen del producto -->
+                <img src="/images/img/<%= product.image %>" alt="<%= product.name %>">
+            </div>
+            <div class="product-details">
+                <!-- Muestra el nombre del producto -->
+                <h2><%= product.name %></h2>
+                
+                <!-- Muestra el precio del producto -->
+                <div class="product-price">
+                    <span>Precio:</span>
+                    <span>$<%= product.price %></span>
+                </div>
+
+                <!-- Opcional: Muestra otros detalles, como descripción -->
+                <p class="product-description"><%= product.description %></p>
+
+            </div>
+        </div>
+
+        <!-- Sección "Te podría gustar" -->
+        <div class="related-products">
+            <h3>TE PODRÍA GUSTAR</h3>
+            <div class="related-product-list">
+                <div class="related-product-item">NOMBRE</div>
+                <div class="related-product-item">NOMBRE</div>
+                <!-- Puedes añadir más productos relacionados aquí -->
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer', { user: user }) %>
+
+</body>
+</html>

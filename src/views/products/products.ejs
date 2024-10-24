@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/productStyles.css" />
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <div class="cart-container">
+        <h1>Productos</h1>
+        <ul>
+            <% productos.forEach(product => { %>
+                <li class="product-overview">
+                    <div class="product-image">
+                        <img src="/images/img/<%= product.image %>" alt="<%= product.name %>">
+                    </div>
+                    <div class="product-details">
+                        <h2><%= product.name %></h2>
+                        <p class="product-description"><%= product.description %></p>
+                        <p class="product-price">Precio: $<%= product.price %></p>
+                        
+                        <a href="/products/<%= product.id %>">Ver Detalle</a>
+                        <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST";>
+                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?')">Eliminar</button>
+                        </form>
+                        
+                    </div>
+                </li>
+                
+            <% }) %>
+        </ul>
+    </div>
+
+    <%- include('../partials/footer', { user: user }) %> 
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <title>Carrito de Compras - CrateDrop</title>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <div class="cart-container">
+            <div class="cart-info">
+                <div class="delivery-info">
+                    <h3>DIRECCIÓN DE ENTREGA</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="payment-info">
+                    <h3>PAGAR POR VISA</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+
+            <div class="cart-items">
+                <% cart.forEach((item, index)=> { %>
+                    <div class="cart-item" data-index="<%= index %>" data-price="<%= item.price %>"
+                        data-quantity="<%= item.quantity %>">
+                        <img src="/images/products/<%= item.image %>" alt="<%= item.name %>">
+                        <h4>
+                            <%= item.name %>
+                        </h4>
+                        <p>Precio: $<span class="price">
+                                <%= item.price %>
+                            </span></p>
+                        <div class="quantity-wrapper">
+                            <button class="quantity-button" data-product-id="<%= item.id %>"
+                                data-action="decrease">-</button>
+                            <input type="text" class="quantity-input" value="<%= item.quantity %>" readonly>
+                            <button class="quantity-button" data-product-id="<%= item.id %>"
+                                data-action="increase">+</button>
+                        </div>
+                        <button class="remove-button" data-product-id="<%= item.id %>">REMOVER</button>
+                    </div>
+                    <% }) %>
+            </div>
+
+
+
+            <div class="order-summary">
+                <h3>RESUMEN DEL PEDIDO</h3>
+                <p>Subtotal (<%= cart.length %> productos): $<%= cart.reduce((total, item)=> total + (item.price *
+                            item.quantity), 0) %></p>
+                <p>Delivery: $3.00</p>
+                <p>Impuesto: $3.00</p>
+                <p>Cargo de servicio: $3.00</p>
+                <p class="order-total">Total: $<%= cart.reduce((total, item)=> total + (item.price * item.quantity), 0)
+                        + 9 %></p>
+                <button class="checkout-button">FINALIZAR ORDEN</button>
+            </div>
+        </div>
+
+        <div class="related-products">
+            <h3>TE PODRÍA GUSTAR</h3>
+            <div class="related-product-list">
+                <!-- Productos sugeridos -->
+                <div class="related-product-item">NOMBRE</div>
+                <div class="related-product-item">NOMBRE</div>
+                <div class="related-product-item">NOMBRE</div>
+                <div class="related-product-item">NOMBRE</div>
+            </div>
+        </div>
+        </div>
+
+        <%- include('../partials/footer') %>
+            <script src="/javascripts/Cart.js"></script>
+
+</body>
+
+</html>

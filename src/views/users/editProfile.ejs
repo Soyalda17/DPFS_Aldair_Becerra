@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/editProfile.css">
+    <title>Editar Perfil</title>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <div class="edit-profile-form-container">
+            <form action="/users/profile/edit" method="POST" enctype="multipart/form-data" class="edit-profile-form"
+                id="editProfileForm">
+                <h1>Editar Perfil</h1>
+
+                <!-- Mostrar los errores de validación -->
+                <% if (errorMessages.length> 0) { %>
+                    <div class="formulario__mensaje formulario__mensaje-activo">
+                        <ul>
+                            <% errorMessages.forEach(function(error) { %>
+                                <li>
+                                    <%= error.msg %>
+                                </li>
+                                <% }); %>
+                        </ul>
+                    </div>
+                    <% } %>
+
+                        <!-- Campo para nombre -->
+                        <div class="field-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="nombre" value="<%= user.name %>" required>
+                            <i class="formulario__validacion-estado"></i>
+                            <p class="formulario__input-error">El nombre debe tener entre 3 y 25 caracteres.</p>
+                        </div>
+
+                        <!-- Campo para correo electrónico -->
+                        <div class="field-group">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" value="<%= user.email %>" required readonly>
+                        </div>
+
+                        <!-- Campo para teléfono -->
+                        <div class="field-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="text" id="telefono" name="telefono" value="<%= user.phone %>" required>
+                            <i class="formulario__validacion-estado"></i>
+                            <p class="formulario__input-error">El teléfono debe ser numérico y contener entre 9 y 14
+                                dígitos.</p>
+                        </div>
+
+                        <!-- Campo para ubicación -->
+                        <div class="field-group">
+                            <label for="location">Ubicación:</label>
+                            <input type="text" id="location" name="location" value="<%= user.location %>" required>
+                            <i class="formulario__validacion-estado"></i>
+                            <p class="formulario__input-error">La ubicación es obligatoria y debe tener entre 1 y 100
+                                caracteres.</p>
+                        </div>
+
+                        <!-- Campo para imagen de perfil -->
+                        <div class="profile-pic-container">
+                            <label for="image">Imagen de perfil:</label>
+                            <img class="profile-pic"
+                                src="<%= user.image ? '/uploads/' + user.image : '/images/default-profile.png' %>"
+                                alt="Imagen de Perfil">
+                            <input type="file" id="image" name="image" accept="image/*">
+                            <i class="formulario__validacion-estado"></i>
+                            <p class="formulario__input-error">Error al cargar la imagen.</p>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="form-group">
+                            <button type="submit" class="save-button">Guardar cambios</button>
+                            <button type="button" class="cancel-button"
+                                onclick="window.location.href='/users/profile'">Cancelar</button>
+                        </div>
+
+                        <!-- Mostrar los errores de validación -->
+                        <% if (errorMessages && errorMessages.length> 0) { %>
+                            <div class="formulario__mensaje formulario__mensaje-activo">
+                                <ul>
+                                    <% errorMessages.forEach(function(error) { %>
+                                        <li>
+                                            <%= error.msg %>
+                                        </li>
+                                        <% }); %>
+                                </ul>
+                            </div>
+                            <% } %>
+
+                                <!-- Mensaje de éxito -->
+                                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">¡Formulario enviado
+                                    exitosamente!</p>
+            </form>
+        </div>
+
+        <%- include('../partials/footer') %>
+
+            <script src="/javascripts/register.js"></script>
+            <script src="https://kit.fontawesome.com/82af38c790.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

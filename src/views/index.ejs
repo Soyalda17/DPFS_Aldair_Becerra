@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrateDrop</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <!-- Contenedor Principal -->
+    <div class="main home-container">
+        <!-- Sección de Banners -->
+        <div class="main-banner">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <img src="/images/img/banner-carrusel1.jpg" alt="Banner 1">
+                    <img src="/images/img/banner-carrusel2.jpg" alt="Banner 2">
+                    <img src="/images/img/banner-carrusel3.jpg" alt="Banner 3">
+                    <img src="/images/img/banner-carrusel4.jpg" alt="Banner 4">
+                    <img src="/images/img/banner-carrusel5.jpg" alt="Banner 5">
+                </div>
+            </div>
+            <div class="banner1">
+                <img class="primerBanner" src="/images/img/banner-cuadrado1.jpg" alt="Banner Cuadrado 1">
+            </div>
+        </div>
+
+            <!-- Categorías -->
+<div class="categories">
+    <h2>CATEGORÍAS</h2>
+    <div class="categories-items">
+        <% categorias.forEach(function(categoria) { %>
+            <div class="category-item">
+                <div class="category-circle">
+                    <img src="<%= categoria.image %>" alt="<%= categoria.name %>">
+                </div>
+                <span class="category-title"><%= categoria.name.toUpperCase() %></span>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+
+<!-- Productos Recomendados -->
+<div class="recommended-items">
+    <h2>PRODUCTOS RECOMENDADOS</h2>
+    <div class="item-recommended">
+        <% if (products && products.length > 0) { %>
+            <% products.forEach(product => { %>
+                <div class="floating-item-container-wrapper">
+                    <div class="floating-item-container">
+                        <div class="floating-item-image">
+                            <img src="/images/img/<%= product.image %>" alt="<%= product.name %>">
+                        </div>
+                        <div class="floating-item-info">
+                            <h3 class="item-title"><%= product.name %></h3>
+                            <p class="product-description"><%= product.description %></p>
+                            <p class="item-price">$<%= product.price %></p>
+                            <a href="/products/<%= product.id %>" class="view-details-button">Ver Detalle</a>
+                            <!-- Botón para añadir al carrito -->
+                            <button class="add-to-cart-button" data-product-id="<%= product.id %>">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No hay productos recomendados en este momento.</p>
+        <% } %>
+    </div>
+</div>
+
+
+
+        <!-- Sección de Información Adicional -->
+        <div class="banner-info">
+            <img src="/images/img/banner-final.jpg" alt="Banner Información">
+        </div>
+    </div>
+
+    <%- include('partials/footer', { user: user }) %>
+
+    <script src="/javascripts/scripts.js"></script>
+    <script src="/javascripts/Cart.js"></script>
+</body>
+
+</html>
